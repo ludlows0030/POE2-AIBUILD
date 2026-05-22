@@ -1,0 +1,41 @@
+# Core Framework
+fastapi>=0.115.0
+uvicorn[standard]>=0.32.0
+
+# Database
+sqlalchemy[asyncio]>=2.0.36
+asyncpg>=0.30.0
+alembic>=1.14.0
+
+# Graph & Vector DB
+neo4j>=5.27.0
+qdrant-client>=1.13.0
+
+# AI / Agent
+anthropic>=0.42.0
+langgraph>=0.2.0
+langchain-core>=0.3.0
+
+# Data Collection
+httpx>=0.28.0
+beautifulsoup4>=4.12.0
+lxml>=5.3.0
+
+# Task Queue
+celery[redis]>=5.4.0
+redis>=5.2.0
+
+# Config & Validation
+pydantic>=2.10.0
+pydantic-settings>=2.7.0
+python-dotenv>=1.0.0
+
+# Resilience
+tenacity>=9.0.0
+
+# Dev
+pytest>=8.3.0
+pytest-asyncio>=0.25.0
+pytest-cov>=6.0.0
+ruff>=0.8.0
+mypy>=1.14.0
