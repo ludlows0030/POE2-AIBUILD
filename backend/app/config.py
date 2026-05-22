@@ -6,8 +6,10 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
+    _env_file = Path(__file__).resolve().parent.parent.parent / ".env"
+
     model_config = SettingsConfigDict(
-        env_file=".env",
+        env_file=str(_env_file),
         env_file_encoding="utf-8",
         extra="ignore",
     )
@@ -90,9 +92,17 @@ class Settings(BaseSettings):
     POEDB_BASE_URL: str = "https://poedb.tw"
     POBB_IN_API_URL: str = "https://pobb.in/api"
 
-    # ── LLM / Anthropic ───────────────────────────────
+    # ── LLM ──────────────────────────────────────────
+    # provider: "anthropic" | "deepseek"
+    LLM_PROVIDER: str = "deepseek"
+    # Anthropic
     ANTHROPIC_API_KEY: str = ""
     ANTHROPIC_MODEL: str = "claude-sonnet-4-6"
+    # DeepSeek (OpenAI-compatible)
+    DEEPSEEK_API_KEY: str = ""
+    DEEPSEEK_MODEL: str = "deepseek-chat"
+    DEEPSEEK_BASE_URL: str = "https://api.deepseek.com"
+    # Common
     LLM_TEMPERATURE: float = 0.7
     LLM_MAX_TOKENS: int = 8192
 

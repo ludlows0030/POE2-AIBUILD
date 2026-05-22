@@ -2,6 +2,10 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## 语言偏好
+
+**所有回复使用简体中文。** 包括代码注释、文档、解释、提问等一切与用户的交流。
+
 ## Project Overview
 
 POE2 AI BD Agent — Path of Exile 2 智能流派生成系统。从社区数据源采集真实玩家 BD 数据，利用 LLM 推理引擎生成新的可行 BD 方案。

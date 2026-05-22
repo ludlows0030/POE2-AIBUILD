@@ -74,16 +74,49 @@ class PoEDBClient:
 
     @retry(stop=stop_after_attempt(2), wait=wait_exponential(min=3, max=15))
     async def fetch_skill_page(self, skill_name: str) -> str | None:
-        """获取技能详情页 HTML。"""
+        """获取技能详情页 HTML（英文）。"""
         client = await self._get_client()
-        # poedb.tw URL 格式: /us/{Skill_Name}
         slug = skill_name.replace(" ", "_")
         r = await client.get(f"/us/{slug}")
         if r.status_code == 404:
-            # 尝试直接搜索
             r = await client.get("/us/", params={"q": skill_name})
         r.raise_for_status()
         return r.text
+
+    @retry(stop=stop_after_attempt(2), wait=wait_exponential(min=3, max=15))
+    async def fetch_chinese_skill_page(self, skill_name: str) -> str | None:
+        """获取技能详情页 HTML（简体中文 /cn/ 路由）。"""
+        client = await self._get_client()
+        slug = skill_name.replace(" ", "_")
+        r = await client.get(
+            f"/cn/{slug}",
+            headers={"Accept-Language": "zh-CN,zh;q=0.9"},
+        )
+        if r.status_code == 404:
+            r = await client.get(
+                "/cn/",
+                params={"q": skill_name},
+                headers={"Accept-Language": "zh-CN,zh;q=0.9"},
+            )
+        if r.status_code == 404:
+            return None
+        r.raise_for_status()
+        return r.text
+
+    def extract_chinese_name(self, html: str) -> str | None:
+        """从中文页面提取技能的中文译名。"""
+        soup = BeautifulSoup(html, "lxml")
+        # poedb.tw 的中文页面标题格式: "SkillName - 中文名 - POE2DB"
+        title_tag = soup.find("title")
+        if title_tag:
+            parts = title_tag.text.split(" - ")
+            if len(parts) >= 2:
+                return parts[1].strip()
+        # 备选：从 h1 或 breadcrumb 提取
+        h1 = soup.find("h1")
+        if h1:
+            return h1.text.strip()
+        return None
 
     # ── Text Extraction ─────────────────────────────────
 

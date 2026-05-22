@@ -17,6 +17,7 @@ from app.models.base import BuildMeta, Character, SkillGroup
 SEED_BUILDS: list[dict] = [
     {
         "name": "Spark Stormweaver (Archmage)",
+        "zh_name": "电光火花 风暴编织者（大法师）",
         "class": "Sorceress",
         "ascendancy": "Stormweaver",
         "level": 95,
@@ -34,6 +35,7 @@ SEED_BUILDS: list[dict] = [
     },
     {
         "name": "Lightning Arrow Deadeye",
+        "zh_name": "闪电箭 神射手",
         "class": "Ranger",
         "ascendancy": "Deadeye",
         "level": 93,
@@ -51,6 +53,7 @@ SEED_BUILDS: list[dict] = [
     },
     {
         "name": "Ice Strike Invoker",
+        "zh_name": "冰击 祈求者",
         "class": "Monk",
         "ascendancy": "Invoker",
         "level": 94,
@@ -68,6 +71,7 @@ SEED_BUILDS: list[dict] = [
     },
     {
         "name": "Minion Infernalist (SRS)",
+        "zh_name": "愤怒烈焰 死灵法师（SRS）",
         "class": "Witch",
         "ascendancy": "Infernalist",
         "level": 94,
@@ -85,6 +89,7 @@ SEED_BUILDS: list[dict] = [
     },
     {
         "name": "Hammer of the Gods Titan",
+        "zh_name": "神锤 泰坦",
         "class": "Warrior",
         "ascendancy": "Titan",
         "level": 95,
@@ -102,6 +107,7 @@ SEED_BUILDS: list[dict] = [
     },
     {
         "name": "Galvanic Shards Tactician",
+        "zh_name": "电流碎片 战术家",
         "class": "Mercenary",
         "ascendancy": "Tactician",
         "level": 90,
