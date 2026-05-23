@@ -150,50 +150,189 @@ async def get_passive_graph(
 
 
 # ── Tool 4: calculate_damage ───────────────────────────
+#
+# 基于 PoB2 CalcOffence.lua 的真实 POE2 伤害公式实现。
+# 公式来源: backend/data/mechanics_offence.txt
+
+
+def _product(values: list[float] | None) -> float:
+    """计算 Π(1 + v/100) 乘积。"""
+    if not values:
+        return 1.0
+    result = 1.0
+    for v in values:
+        result *= 1.0 + v / 100.0
+    return result
 
 
 async def calculate_damage(
-    base_damage: float = 100.0,
+    # ── 基础伤害 ──
+    base_damage_min: float = 100.0,
+    base_damage_max: float = 150.0,
+    added_damage: float = 0.0,
+    added_damage_multiplier: float = 1.0,
+    base_multiplier: float = 1.0,
+    # ── INC / MORE ──
     increased_damage: float = 0.0,
     more_multipliers: list[float] | None = None,
-    crit_chance: float = 0.05,
-    crit_multiplier: float = 1.5,
-    cast_rate: float = 2.0,
-    resistance_penetration: float = 0.0,
+    more_min_damage: float = 1.0,
+    more_max_damage: float = 1.0,
+    add_min_damage: float = 0.0,
+    add_max_damage: float = 0.0,
+    # ── 暴击 ──
+    base_crit_chance: float = 0.05,
+    increased_crit_chance: float = 0.0,
+    more_crit_chance: list[float] | None = None,
+    crit_chance_cap: float = 1.0,
+    base_crit_multiplier: float = 1.5,
+    increased_crit_multiplier: float = 0.0,
+    more_crit_multiplier: list[float] | None = None,
+    # ── 全局缩放 ──
+    double_damage_chance: float = 0.0,
+    triple_damage_chance: float = 0.0,
+    lucky_hit: bool = False,
+    # ── 抗性/穿透 ──
     enemy_resistance: float = 0.0,
+    resistance_penetration: float = 0.0,
+    # ── 施法速度 ──
+    cast_rate: float = 2.0,
+    # ── DoT ──
+    dot_dps: float = 0.0,
+    # ── Impale ──
+    impale_stacks: int = 0,
+    impale_effect_inc: float = 0.0,
+    impale_effect_more: list[float] | None = None,
+    impale_chance: float = 0.0,
+    enemy_phys_reduction: float = 0.0,
+    enemy_impale_phys_reduction: float = 0.0,
+    impale_taken_mult: float = 1.0,
+    phys_reduction_cap: float = 90.0,
+    # ── 斩杀 & 承伤 ──
+    cull_multiplier: float = 1.0,
+    enemy_taken_inc: float = 0.0,
+    enemy_taken_more: list[float] | None = None,
 ) -> dict[str, Any]:
-    """简化的 POE2 伤害估算器。
+    """POE2 完整伤害估算器 — 基于 PoB2 CalcOffence.lua。
 
-    公式：DPS = Base × (1 + Σinc) × Π(1+more) × (1 + crit_chance × (crit_multi-1)) × cast_rate × res_mult
-    其中 res_mult = (1 - enemy_res + penetration)
+    公式链:
+      基础伤害组装 → 伤害转换 → INC/MORE → 全局缩放(双倍/三倍/Lucky)
+      → 暴击期望 → 抗性/穿透 → Impale → DoT → 斩杀
+
+    Returns:
+        详细伤害分解，包含 avg_hit, crit_avg, total_dps, 各环节倍率
     """
+    # ━━━ 第1步: 基础伤害组装 ━━━
+    # baseMin = (sourceMin + bonusMin + addedMin * addedMult) * baseMultiplier
+    assembled_min = (base_damage_min + added_damage * added_damage_multiplier) * base_multiplier
+    assembled_max = (base_damage_max + added_damage * added_damage_multiplier) * base_multiplier
+
+    # ━━━ 第2步: INC/MORE 修饰 ━━━
     inc_mult = 1.0 + increased_damage / 100.0
+    more_mult = _product(more_multipliers)
 
-    more_mult = 1.0
-    if more_multipliers:
-        for m in more_multipliers:
-            more_mult *= 1.0 + m / 100.0
+    # hitMin = round(summedMin * inc * more * moreMinDamage + addMin)
+    hit_min = assembled_min * inc_mult * more_mult * more_min_damage + add_min_damage
+    hit_max = assembled_max * inc_mult * more_mult * more_max_damage + add_max_damage
+    hit_avg = (hit_min + hit_max) / 2.0
 
-    effective_res = max(-2.0, enemy_resistance - resistance_penetration)
+    # ━━━ 第3步: 暴击计算 ━━━
+    # CritChance = baseCrit * (1 + inc_crit/100) * product(1 + more_crit_i/100)
+    crit_chance = base_crit_chance * (1.0 + increased_crit_chance / 100.0) * _product(more_crit_chance)
+    crit_chance = min(crit_chance, crit_chance_cap)
+
+    # CritMultiplier = 1 + max(0, (baseCritMulti - 1) * (1 + inc/100) * product(more_i))
+    crit_extra_base = base_crit_multiplier - 1.0
+    crit_extra = crit_extra_base * (1.0 + increased_crit_multiplier / 100.0) * _product(more_crit_multiplier)
+    crit_multiplier = 1.0 + max(0.0, crit_extra)
+
+    # ━━━ 第4步: Lucky Hit ━━━
+    if lucky_hit:
+        non_crit_avg = hit_min / 3.0 + 2.0 * hit_max / 3.0
+    else:
+        non_crit_avg = hit_avg
+
+    crit_avg_damage = non_crit_avg * crit_multiplier
+
+    # ━━━ 第5步: 全局缩放 (双倍/三倍伤害) ━━━
+    # allMult = 1 + DoubleDamageChance/100 + 2*TripleDamageChance/100
+    extra_hit_mult = 1.0 + double_damage_chance / 100.0 + 2.0 * triple_damage_chance / 100.0
+
+    # 暴击也受双倍/三倍加成
+    crit_avg_damage *= extra_hit_mult
+    non_crit_avg *= extra_hit_mult
+
+    # ━━━ 第6步: StoredCombinedAvg = CritAvg*critChance + HitAvg*(1-critChance) ━━━
+    combined_hit_avg = crit_avg_damage * crit_chance + non_crit_avg * (1.0 - crit_chance)
+
+    # ━━━ 第7步: 抗性/穿透 ━━━
+    # effMult = (1 + takenInc/100) * takenMore
+    taken_mult = (1.0 + enemy_taken_inc / 100.0) * _product(enemy_taken_more)
+
+    # 元素: effMult *= (1 - max(resist - pen, 0) / 100) — 穿透不将正抗性降到0以下
+    # 负抗性直接增伤: effMult *= (1 - resist/100) where resist < 0
+    if enemy_resistance > 0:
+        effective_res = max(enemy_resistance - resistance_penetration, 0.0)
+    else:
+        effective_res = enemy_resistance
     res_mult = 1.0 - effective_res
 
-    hit_damage = base_damage * inc_mult * more_mult
-    avg_hit = hit_damage * (1.0 + crit_chance * (crit_multiplier - 1.0))
-    dps = avg_hit * cast_rate * res_mult
+    # ━━━ 第8步: Impale ━━━
+    impale_modifier = 1.0
+    impale_dps = 0.0
+    if impale_stacks > 0:
+        impale_effect_more_val = _product(impale_effect_more)
+        stored_dmg = 0.1 * (1.0 + impale_effect_inc / 100.0) * impale_effect_more_val
+        hit_dmg_mod = stored_dmg * impale_stacks
+        total_phys_reduction = min(
+            enemy_phys_reduction + enemy_impale_phys_reduction,
+            phys_reduction_cap,
+        )
+        impale_resist_mult = 1.0 - total_phys_reduction / 100.0
+        dmg_modifier = hit_dmg_mod * impale_resist_mult * impale_chance / 100.0 * impale_taken_mult
+        impale_modifier = 1.0 + dmg_modifier
+        impale_dps = combined_hit_avg * cast_rate * (impale_modifier - 1.0)
+
+    # ━━━ 第9步: 最终合并 ━━━
+    # CombinedDPS = (TotalDPS + TotalDotDPS + ImpaleDPS) * CullMultiplier
+    hit_dps = combined_hit_avg * cast_rate * taken_mult * res_mult * impale_modifier
+    total_dps = (hit_dps + dot_dps + impale_dps * cast_rate) * cull_multiplier
 
     return {
-        "base_damage": base_damage,
+        # 基础伤害
+        "base_damage_range": [round(assembled_min, 1), round(assembled_max, 1)],
+        "hit_damage_range": [round(hit_min, 1), round(hit_max, 1)],
+        # 各级倍率
         "increased_multiplier": round(inc_mult, 3),
         "more_multiplier": round(more_mult, 3),
+        "taken_multiplier": round(taken_mult, 3),
         "resistance_multiplier": round(res_mult, 3),
-        "average_hit": round(avg_hit, 1),
-        "estimated_dps": round(dps, 1),
+        "extra_hit_multiplier": round(extra_hit_mult, 3),
+        "cull_multiplier": round(cull_multiplier, 3),
+        # 暴击
+        "effective_crit_chance": round(crit_chance * 100, 2),
+        "effective_crit_multiplier": round(crit_multiplier, 3),
+        "crit_average_hit": round(crit_avg_damage, 1),
+        "non_crit_average_hit": round(non_crit_avg, 1),
+        "combined_average_hit": round(combined_hit_avg, 1),
+        # Impale
+        "impale_modifier": round(impale_modifier, 3),
+        "impale_dps": round(impale_dps, 1),
+        # 最终输出
+        "hit_dps": round(hit_dps, 1),
+        "dot_dps": round(dot_dps, 1),
+        "total_dps": round(total_dps, 1),
+        # 向后兼容别名 (agent 路由 + format_output 使用)
+        "estimated_dps": round(total_dps, 1),
+        "average_hit": round(combined_hit_avg, 1),
+        # 假设条件
         "assumptions": {
-            "crit_chance": crit_chance,
-            "crit_multiplier": crit_multiplier,
+            "lucky_hit": lucky_hit,
             "cast_rate": cast_rate,
             "enemy_resistance": enemy_resistance,
             "penetration": resistance_penetration,
+            "effective_resistance": round(effective_res * 100, 1),
+            "impale_stacks": impale_stacks,
+            "impale_chance": impale_chance,
         },
     }
 
@@ -276,3 +415,80 @@ async def poe2db_lookup(
     from app.collectors.poe2db_lookup import lookup
 
     return await lookup(term, lang, format)
+
+
+# ── Tool 8: find_compatible_supports ────────────────────
+
+
+async def find_compatible_supports(
+    db: AsyncSession, skill_name: str, limit: int = 30
+) -> dict[str, Any]:
+    """根据主动技能标签，查找所有兼容的辅助宝石。
+
+    规则：辅助宝石的所有非 support 标签必须 ⊆ 主动技能标签。
+    """
+    # 获取主动技能标签
+    result = await db.execute(
+        text(
+            "SELECT skill_name, tags FROM game_mechanic "
+            "WHERE skill_name = :name AND skill_type = 'active' AND is_active = true LIMIT 1"
+        ),
+        {"name": skill_name},
+    )
+    row = result.fetchone()
+    if not row:
+        # 模糊匹配
+        result = await db.execute(
+            text(
+                "SELECT skill_name, tags FROM game_mechanic "
+                "WHERE skill_name ILIKE :name AND skill_type = 'active' AND is_active = true LIMIT 1"
+            ),
+            {"name": f"%{skill_name}%"},
+        )
+        row = result.fetchone()
+    if not row:
+        return {"skill_name": skill_name, "found": False, "compatible_supports": []}
+
+    skill_name_actual = row[0]
+    active_tags = row[1] or []
+
+    # 标签匹配查询
+    result = await db.execute(
+        text("""
+            SELECT sg.skill_name, sg.tags,
+                   array_remove(sg.tags, 'support') AS required_tags,
+                   sg.description
+            FROM game_mechanic sg
+            WHERE sg.skill_type = 'support' AND sg.is_active = true
+            AND array_remove(sg.tags, 'support') <@ :active_tags
+            ORDER BY array_length(array_remove(sg.tags, 'support'), 1) DESC NULLS LAST,
+                     sg.skill_name
+            LIMIT :limit
+        """),
+        {"active_tags": active_tags, "limit": limit},
+    )
+    compatible = []
+    for r in result:
+        desc = (r[3] or "")[:200] if r[3] else None
+        compatible.append({
+            "name": r[0],
+            "required_tags": r[2] or [],
+            "description": desc,
+        })
+
+    total_result = await db.execute(
+        text("""
+            SELECT count(*) FROM game_mechanic sg
+            WHERE sg.skill_type = 'support' AND sg.is_active = true
+            AND array_remove(sg.tags, 'support') <@ :active_tags
+        """),
+        {"active_tags": active_tags},
+    )
+    total = total_result.fetchone()[0]
+
+    return {
+        "skill_name": skill_name_actual,
+        "active_tags": active_tags,
+        "total_compatible": total,
+        "compatible_supports": compatible,
+    }

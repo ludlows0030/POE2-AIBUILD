@@ -317,8 +317,8 @@ class POE2DBSkillScraper:
                 result["tier"] = int(tier_m.group(1))
                 continue
 
-            # 4c. 魔力/灵魂消耗
-            mana_m = re.search(r"(\d+)\s*[—\-–]\s*(\d+)\s*(?:点)?魔力", text)
+            # 4c. 魔力消耗 (格式: "消耗: (7—74) 点魔力")
+            mana_m = re.search(r"(\d+)\D+(\d+)\D*魔力", text)
             if mana_m and "mana_cost" not in seen_prop_keys:
                 seen_prop_keys.add("mana_cost")
                 result["mana_cost_min"] = int(mana_m.group(1))
@@ -330,29 +330,29 @@ class POE2DBSkillScraper:
                 result["spirit_cost"] = int(spirit_m.group(1))
                 continue
 
-            # 4d. 攻击速度 / 施放时间
-            speed_m = re.search(r"(攻击速度|施放速度|攻击时间).*?(\d+\.?\d*)\s*%\s*基础", text)
-            if speed_m and "attack_speed" not in seen_prop_keys:
-                seen_prop_keys.add("attack_speed")
-                result["attack_speed"] = float(speed_m.group(2))
-                continue
-
-            # 4d2. 施放时间 (法术专用，单位秒)
-            cast_m = re.search(r"施放时间.*?(\d+\.?\d*)\s*秒", text)
-            if cast_m and "attack_speed" not in seen_prop_keys:
-                seen_prop_keys.add("attack_speed")
+            # 4d. 施放间隔 (法术专用，单位秒) — 格式: "施放间隔: 1.00 秒"
+            cast_m = re.search(r"(?:施放间隔|施放时间|Cast Time).*?(\d+\.?\d*)\s*秒", text)
+            if cast_m and "cast_time" not in seen_prop_keys:
+                seen_prop_keys.add("cast_time")
                 result["cast_time"] = float(cast_m.group(1))
                 continue
 
-            # 4e. 伤害效用 (攻击伤害 / 法术伤害)
-            dmg_m = re.search(r"(攻击伤害|法术伤害).*?\(\s*(\d+)\s*[—\-–]\s*(\d+)\s*\)\s*%\s*基础", text)
-            if dmg_m and "damage_effectiveness" not in seen_prop_keys:
-                seen_prop_keys.add("damage_effectiveness")
-                result["damage_effectiveness_min"] = int(dmg_m.group(2))
-                result["damage_effectiveness_max"] = int(dmg_m.group(3))
+            # 4e. 攻击间隔 (攻击技能专用) — 格式: "攻击间隔: 0.80 秒"
+            atk_speed_m = re.search(r"(?:攻击间隔|攻击速度|Attack Speed).*?(\d+\.?\d*)\s*(?:秒|次/秒)", text)
+            if atk_speed_m and "attack_speed" not in seen_prop_keys:
+                seen_prop_keys.add("attack_speed")
+                result["attack_speed"] = float(atk_speed_m.group(1))
                 continue
 
-            # 4f. 暴击率
+            # 4f. 伤害效用 (攻击技能专用) — 格式: "攻击伤害: (110—449)% 基础"
+            dmg_m = re.search(r"(?:攻击伤害|Attack Damage)[^(]*\(\s*(\d+)\D+(\d+)\s*\)\s*%\s*基础", text)
+            if dmg_m and "damage_effectiveness" not in seen_prop_keys:
+                seen_prop_keys.add("damage_effectiveness")
+                result["damage_effectiveness_min"] = int(dmg_m.group(1))
+                result["damage_effectiveness_max"] = int(dmg_m.group(2))
+                continue
+
+            # 4g. 暴击率 — 格式: "暴击率: 12.00%"
             crit_m = re.search(r"暴击\s*(?:率)?.*?(\d+\.?\d*)%", text)
             if crit_m and "base_crit_chance" not in seen_prop_keys:
                 seen_prop_keys.add("base_crit_chance")
@@ -363,6 +363,33 @@ class POE2DBSkillScraper:
         desc_div = soup.find("div", class_="secDescrText")
         if desc_div:
             result["description"] = desc_div.get_text(" ", strip=True)
+
+        # ── 5b. 机制效果表 (Implicit / 辅助宝石数值) ──
+        # 辅助宝石的实际效果数据在 "Implicit" 表格中
+        implicit_effects: list[str] = []
+        for table in soup.find_all("table", class_="filters"):
+            thead = table.find("thead")
+            if not thead:
+                continue
+            th = thead.find("th")
+            if not th:
+                continue
+            header = th.get_text(strip=True)
+            # 收集 Implicit 或 "Gem" 相关表格中的效果文本
+            if header in ("Implicit", "Explicit", "Gem", "Effect"):
+                for tr in table.find_all("tr"):
+                    text = tr.get_text(" ", strip=True)
+                    if text and text != header and len(text) > 3:
+                        implicit_effects.append(text)
+
+        if implicit_effects:
+            result["implicit_effects"] = implicit_effects
+            # 将 implicit effects 合并到描述中（这是核心机制数据）
+            effects_text = " | ".join(implicit_effects)
+            if result.get("description"):
+                result["description"] = effects_text + " || " + result["description"]
+            else:
+                result["description"] = effects_text
 
         # ── 6. 品质修饰符 ──────────────────────
         qual_div = soup.find("div", class_="qualityMod")

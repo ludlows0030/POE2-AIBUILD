@@ -1,0 +1,669 @@
+[
+  {
+    "skill_name": "Herald of Ash",
+    "skill_type": "Strength",
+    "tags": [
+      "Buff",
+      "Duration",
+      "Fire",
+      "Herald",
+      "Strength"
+    ],
+    "description": "灰烬之捷",
+    "base_crit": null,
+    "dmg_effectiveness": null
+  },
+  {
+    "skill_name": "Boneshatter",
+    "skill_type": "Strength",
+    "tags": [
+      "Attack",
+      "Melee",
+      "Strike",
+      "Strength"
+    ],
+    "description": "七伤破",
+    "base_crit": null,
+    "dmg_effectiveness": null
+  },
+  {
+    "skill_name": "Earthquake",
+    "skill_type": "Strength",
+    "tags": [
+      "Attack",
+      "Duration",
+      "Melee",
+      "Strength"
+    ],
+    "description": "震地",
+    "base_crit": null,
+    "dmg_effectiveness": null
+  },
+  {
+    "skill_name": "Rolling Slam",
+    "skill_type": "Strength",
+    "tags": [
+      "Attack",
+      "Melee",
+      "Strength"
+    ],
+    "description": "轰动猛击",
+    "base_crit": null,
+    "dmg_effectiveness": null
+  },
+  {
+    "skill_name": "Armour Breaker",
+    "skill_type": "Strength",
+    "tags": [
+      "Attack",
+      "Melee",
+      "Physical",
+      "Slam",
+      "Strike",
+      "Strength"
+    ],
+    "description": "摧甲重击",
+    "base_crit": null,
+    "dmg_effectiveness": null
+  },
+  {
+    "skill_name": "Infernal Cry",
+    "skill_type": "Strength",
+    "tags": [
+      "Duration",
+      "Fire",
+      "Trigger",
+      "Warcry",
+      "Strength"
+    ],
+    "description": "炽焰战吼",
+    "base_crit": null,
+    "dmg_effectiveness": null
+  },
+  {
+    "skill_name": "Shield Charge",
+    "skill_type": "Strength",
+    "tags": [
+      "Attack",
+      "Melee",
+      "Physical",
+      "Strength"
+    ],
+    "description": "重盾冲锋",
+    "base_crit": null,
+    "dmg_effectiveness": null
+  },
+  {
+    "skill_name": "Shockwave Totem",
+    "skill_type": "Strength",
+    "tags": [
+      "Attack",
+      "Duration",
+      "Melee",
+      "Totem",
+      "Strength"
+    ],
+    "description": "震波图腾",
+    "base_crit": null,
+    "dmg_effectiveness": null
+  },
+  {
+    "skill_name": "Iron Ward",
+    "skill_type": "Strength",
+    "tags": [
+      "Buff",
+      "Physical",
+      "Strength"
+    ],
+    "description": "钢铁看守",
+    "base_crit": null,
+    "dmg_effectiveness": null
+  },
+  {
+    "skill_name": "Magma Barrier",
+    "skill_type": "Strength",
+    "tags": [
+      "Attack",
+      "Buff",
+      "Fire",
+      "Melee",
+      "Trigger",
+      "Strength"
+    ],
+    "description": "岩浆屏障",
+    "base_crit": null,
+    "dmg_effectiveness": null
+  },
+  {
+    "skill_name": "Scavenged Plating",
+    "skill_type": "Strength",
+    "tags": [
+      "Buff",
+      "Duration",
+      "Physical",
+      "Strength"
+    ],
+    "description": "装甲回收",
+    "base_crit": null,
+    "dmg_effectiveness": null
+  },
+  {
+    "skill_name": "Molten Blast",
+    "skill_type": "Strength",
+    "tags": [
+      "Attack",
+      "Fire",
+      "Projectile",
+      "Strength"
+    ],
+    "description": "熔岩爆裂",
+    "base_crit": null,
+    "dmg_effectiveness": null
+  },
+  {
+    "skill_name": "Perfect Strike",
+    "skill_type": "Strength",
+    "tags": [
+      "Attack",
+      "Fire",
+      "Melee",
+      "Strike",
+      "Strength"
+    ],
+    "description": "完美一击",
+    "base_crit": null,
+    "dmg_effectiveness": null
+  },
+  {
+    "skill_name": "Resonating Shield",
+    "skill_type": "Strength",
+    "tags": [
+      "Attack",
+      "Melee",
+      "Physical",
+      "Strength"
+    ],
+    "description": "共振护盾",
+    "base_crit": null,
+    "dmg_effectiveness": null
+  },
+  {
+    "skill_name": "Earthshatter",
+    "skill_type": "Strength",
+    "tags": [
+      "Attack",
+      "Duration",
+      "Melee",
+      "Warcry",
+      "Strength"
+    ],
+    "description": "尖刺战吼",
+    "base_crit": null,
+    "dmg_effectiveness": null
+  },
+  {
+    "skill_name": "Leap Slam",
+    "skill_type": "Strength",
+    "tags": [
+      "Attack",
+      "Melee",
+      "Strength"
+    ],
+    "description": "跃击",
+    "base_crit": null,
+    "dmg_effectiveness": null
+  },
+  {
+    "skill_name": "Shield Wall",
+    "skill_type": "Strength",
+    "tags": [
+      "Attack",
+      "Duration",
+      "Melee",
+      "Physical",
+      "Strength"
+    ],
+    "description": "盾墙",
+    "base_crit": null,
+    "dmg_effectiveness": null
+  },
+  {
+    "skill_name": "Volcanic Fissure",
+    "skill_type": "Strength",
+    "tags": [
+      "Attack",
+      "Duration",
+      "Fire",
+      "Melee",
+      "Strength"
+    ],
+    "description": "火山裂缝",
+    "base_crit": null,
+    "dmg_effectiveness": null
+  },
+  {
+    "skill_name": "Overwhelming Presence",
+    "skill_type": "Strength",
+    "tags": [
+      "Aura",
+      "Buff",
+      "Strength"
+    ],
+    "description": "压迫气场",
+    "base_crit": null,
+    "dmg_effectiveness": null
+  },
+  {
+    "skill_name": "Time of Need",
+    "skill_type": "Strength",
+    "tags": [
+      "Buff",
+      "Duration",
+      "Strength"
+    ],
+    "description": "紧急时刻",
+    "base_crit": null,
+    "dmg_effectiveness": null
+  },
+  {
+    "skill_name": "Forge Hammer",
+    "skill_type": "Strength",
+    "tags": [
+      "Attack",
+      "Duration",
+      "Fire",
+      "Melee",
+      "Strength"
+    ],
+    "description": "锻造之锤",
+    "base_crit": null,
+    "dmg_effectiveness": null
+  },
+  {
+    "skill_name": "Fortifying Cry",
+    "skill_type": "Strength",
+    "tags": [
+      "Attack",
+      "Duration",
+      "Melee",
+      "Physical",
+      "Trigger",
+      "Warcry",
+      "Strength"
+    ],
+    "description": "坚韧战吼",
+    "base_crit": null,
+    "dmg_effectiveness": null
+  },
+  {
+    "skill_name": "Sunder",
+    "skill_type": "Strength",
+    "tags": [
+      "Attack",
+      "Duration",
+      "Melee",
+      "Strength"
+    ],
+    "description": "大地震击",
+    "base_crit": null,
+    "dmg_effectiveness": null
+  },
+  {
+    "skill_name": "Seismic Cry",
+    "skill_type": "Strength",
+    "tags": [
+      "Physical",
+      "Warcry",
+      "Strength"
+    ],
+    "description": "震地战吼",
+    "base_crit": null,
+    "dmg_effectiveness": null
+  },
+  {
+    "skill_name": "Stampede",
+    "skill_type": "Strength",
+    "tags": [
+      "Attack",
+      "Duration",
+      "Melee",
+      "Strength"
+    ],
+    "description": "溃败",
+    "base_crit": null,
+    "dmg_effectiveness": null
+  },
+  {
+    "skill_name": "Supercharged Slam",
+    "skill_type": "Strength",
+    "tags": [
+      "Attack",
+      "Melee",
+      "Strength"
+    ],
+    "description": "蓄威神锤",
+    "base_crit": null,
+    "dmg_effectiveness": null
+  },
+  {
+    "skill_name": "Ancestral Cry",
+    "skill_type": "Strength",
+    "tags": [
+      "Attack",
+      "Buff",
+      "Duration",
+      "Fire",
+      "Melee",
+      "Projectile",
+      "Trigger",
+      "Warcry",
+      "Strength"
+    ],
+    "description": "先祖战吼",
+    "base_crit": null,
+    "dmg_effectiveness": null
+  },
+  {
+    "skill_name": "Ancestral Warrior Totem",
+    "skill_type": "Strength",
+    "tags": [
+      "Attack",
+      "Duration",
+      "Melee",
+      "Totem",
+      "Strength"
+    ],
+    "description": "先祖战士图腾",
+    "base_crit": null,
+    "dmg_effectiveness": null
+  },
+  {
+    "skill_name": "Hammer of the Gods",
+    "skill_type": "Strength",
+    "tags": [
+      "Attack",
+      "Duration",
+      "Melee",
+      "Strength"
+    ],
+    "description": "诸天之锤",
+    "base_crit": null,
+    "dmg_effectiveness": null
+  },
+  {
+    "skill_name": "Berserk",
+    "skill_type": "Strength",
+    "tags": [
+      "Buff",
+      "Strength"
+    ],
+    "description": "盛怒",
+    "base_crit": null,
+    "dmg_effectiveness": null
+  },
+  {
+    "skill_name": "Eternal Rage",
+    "skill_type": "Strength",
+    "tags": [
+      "Buff",
+      "Strength"
+    ],
+    "description": "永恒狂怒",
+    "base_crit": null,
+    "dmg_effectiveness": null
+  },
+  {
+    "skill_name": "Companion%3A %7B0%7D",
+    "skill_type": "Dexterity",
+    "tags": [
+      "Minion",
+      "Dexterity"
+    ],
+    "description": "伙伴：{0}",
+    "base_crit": null,
+    "dmg_effectiveness": null
+  },
+  {
+    "skill_name": "Herald of Thunder",
+    "skill_type": "Dexterity",
+    "tags": [
+      "Attack",
+      "Buff",
+      "Herald",
+      "Lightning",
+      "Dexterity"
+    ],
+    "description": "闪电之捷",
+    "base_crit": null,
+    "dmg_effectiveness": null
+  },
+  {
+    "skill_name": "Disengage",
+    "skill_type": "Dexterity",
+    "tags": [
+      "Attack",
+      "Melee",
+      "Strike",
+      "Dexterity"
+    ],
+    "description": "退避三舍",
+    "base_crit": null,
+    "dmg_effectiveness": null
+  },
+  {
+    "skill_name": "Escape Shot",
+    "skill_type": "Dexterity",
+    "tags": [
+      "Attack",
+      "Cold",
+      "Projectile",
+      "Trigger",
+      "Dexterity"
+    ],
+    "description": "逃脱射击",
+    "base_crit": null,
+    "dmg_effectiveness": null
+  },
+  {
+    "skill_name": "Explosive Spear",
+    "skill_type": "Dexterity",
+    "tags": [
+      "Attack",
+      "Duration",
+      "Fire",
+      "Projectile",
+      "Dexterity"
+    ],
+    "description": "爆破战矛",
+    "base_crit": null,
+    "dmg_effectiveness": null
+  },
+  {
+    "skill_name": "Lightning Arrow",
+    "skill_type": "Dexterity",
+    "tags": [
+      "Attack",
+      "Lightning",
+      "Projectile",
+      "Dexterity"
+    ],
+    "description": "闪电箭矢",
+    "base_crit": null,
+    "dmg_effectiveness": null
+  },
+  {
+    "skill_name": "Lightning Rod",
+    "skill_type": "Dexterity",
+    "tags": [
+      "Attack",
+      "Duration",
+      "Lightning",
+      "Projectile",
+      "Dexterity"
+    ],
+    "description": "引雷针",
+    "base_crit": null,
+    "dmg_effectiveness": null
+  },
+  {
+    "skill_name": "Poisonburst Arrow",
+    "skill_type": "Dexterity",
+    "tags": [
+      "Attack",
+      "Chaos",
+      "Duration",
+      "Projectile",
+      "Dexterity"
+    ],
+    "description": "毒爆箭",
+    "base_crit": null,
+    "dmg_effectiveness": null
+  },
+  {
+    "skill_name": "Twister",
+    "skill_type": "Dexterity",
+    "tags": [
+      "Attack",
+      "Duration",
+      "Projectile",
+      "Dexterity"
+    ],
+    "description": "旋龙",
+    "base_crit": null,
+    "dmg_effectiveness": null
+  },
+  {
+    "skill_name": "Whirling Slash",
+    "skill_type": "Dexterity",
+    "tags": [
+      "Attack",
+      "Melee",
+      "Strike",
+      "Dexterity"
+    ],
+    "description": "回旋挥斩",
+    "base_crit": null,
+    "dmg_effectiveness": null
+  },
+  {
+    "skill_name": "Cull The Weak",
+    "skill_type": "Dexterity",
+    "tags": [
+      "Attack",
+      "Melee",
+      "Strike",
+      "Dexterity"
+    ],
+    "description": "终结弱者",
+    "base_crit": null,
+    "dmg_effectiveness": null
+  },
+  {
+    "skill_name": "Fangs of Frost",
+    "skill_type": "Dexterity",
+    "tags": [
+      "Attack",
+      "Cold",
+      "Melee",
+      "Strike",
+      "Dexterity"
+    ],
+    "description": "刺骨寒冰",
+    "base_crit": null,
+    "dmg_effectiveness": null
+  },
+  {
+    "skill_name": "Freezing Salvo",
+    "skill_type": "Dexterity",
+    "tags": [
+      "Attack",
+      "Cold",
+      "Projectile",
+      "Dexterity"
+    ],
+    "description": "冻结齐射",
+    "base_crit": null,
+    "dmg_effectiveness": null
+  },
+  {
+    "skill_name": "Lightning Spear",
+    "skill_type": "Dexterity",
+    "tags": [
+      "Attack",
+      "Lightning",
+      "Projectile",
+      "Dexterity"
+    ],
+    "description": "闪电战矛",
+    "base_crit": null,
+    "dmg_effectiveness": null
+  },
+  {
+    "skill_name": "Rake",
+    "skill_type": "Dexterity",
+    "tags": [
+      "Attack",
+      "Melee",
+      "Physical",
+      "Strike",
+      "Dexterity"
+    ],
+    "description": "斜掠",
+    "base_crit": null,
+    "dmg_effectiveness": null
+  },
+  {
+    "skill_name": "Snipe",
+    "skill_type": "Dexterity",
+    "tags": [
+      "Attack",
+      "Cold",
+      "Projectile",
+      "Dexterity"
+    ],
+    "description": "狙击",
+    "base_crit": null,
+    "dmg_effectiveness": null
+  },
+  {
+    "skill_name": "Stormcaller Arrow",
+    "skill_type": "Dexterity",
+    "tags": [
+      "Attack",
+      "Duration",
+      "Lightning",
+      "Projectile",
+      "Dexterity"
+    ],
+    "description": "唤雷箭",
+    "base_crit": null,
+    "dmg_effectiveness": null
+  },
+  {
+    "skill_name": "Vine Arrow",
+    "skill_type": "Dexterity",
+    "tags": [
+      "Attack",
+      "Chaos",
+      "Duration",
+      "Projectile",
+      "Dexterity"
+    ],
+    "description": "藤缠箭",
+    "base_crit": null,
+    "dmg_effectiveness": null
+  },
+  {
+    "skill_name": "Plague Bearer",
+    "skill_type": "Dexterity",
+    "tags": [
+      "Buff",
+      "Chaos",
+      "Physical",
+      "Dexterity"
+    ],
+    "description": "灾难使徒",
+    "base_crit": null,
+    "dmg_effectiveness": null
+  }
+]

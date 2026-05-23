@@ -1,0 +1,112 @@
+# POE2 伤害计算公式 — 从 PoB2 CalcOffence.lua 提取
+
+## 1. HIT DAMAGE 公式
+
+### 基础伤害组装
+baseMin = (sourceMin + bonusMin + addedMin * addedMult) * baseMultiplier
+baseMax = (sourceMax + bonusMax + addedMax * addedMult) * baseMultiplier
+
+- source = 武器基础伤害(attack) 或 skillData(spell)
+- added = flat 加成 (skillModList:Sum("BASE", cfg, "PhysicalMin" 等))
+- addedMult = calcLib.mod(skillModList, cfg, "AddedDamage", "AddedXDamage")
+- baseMultiplier = skillData.baseMultiplier or 1
+
+### INC/MORE 修饰符
+inc  = 1 + skillModList:Sum("INC", cfg, modNames) / 100
+more = skillModList:More(cfg, modNames)
+hitMin = round(summedMin * inc * more * moreMinDamage + addMin)
+hitMax = round(summedMax * inc * more * moreMaxDamage + addMax)
+
+### 全局缩放
+allMult = 1 + DoubleDamageChance/100 + 2*TripleDamageChance/100
+暴击时: allMult *= CritMultiplier
+Lucky Hit: luckyAvg = min/3 + 2*max/3 (否则 avg = (min+max)/2)
+
+### 抗性/穿透后
+effMult = (1 + takenInc/100) * takenMore
+元素: effMult *= (1 - max(resist - pen, minPen) / 100)
+物理: effMult *= (1 - physResist/100)
+
+### 最终合并
+StoredCombinedAvg = CritAvg*critChance% + HitAvg*(1-critChance%)
+CombinedDPS = (TotalDPS + TotalDotDPS + ImpaleDPS) * CullMultiplier
+
+## 2. DAMAGE CONVERSION
+
+转换顺序: Physical -> Lightning -> Cold -> Fire -> Chaos
+
+两层转换:
+  第一层: 技能自带转换 (SkillDamageConvertToX)
+  第二层: 全局转换 (DamageConvertToX, 作用于剩余部分)
+  总转换 > 100% 时等比缩放: factor = 100/total
+
+Gained As (防 double-dip):
+  gained = SUM(原伤害 * 未被转走的比例 + 转入部分) * gainMult
+  Gain 基于转换前的原始伤害，不级联
+
+## 3. CRITICAL STRIKE
+
+CritChance = (baseCrit + base) * (1 + inc/100) * more
+  baseCrit = weapon.CritChance or skillData.CritChance
+  CritChance = min(CritChance, CritChanceCap)
+  Effective mode: CritChance *= AccuracyHitChance/100 (命中二次判定)
+  Lucky: CritChance = (1-(1-CritChance/100)^2)*100
+
+CritMultiplier = 1 + max(0, extraDamage)
+  extraDamage = base/100 * (1 + inc/100) * more
+
+CritEffect = 1 - critChance/100 + (critChance/100) * CritMultiplier
+
+## 4. AILMENT CALCULATIONS
+
+### Ignite/Shock (阈值触发)
+hitChance  = (hitAvg / enemyThreshold) * gameConstants[ailment.."ChanceMultiplier"]
+finalChance = min(100, (chance + base) * (1 + inc/100) * more)
+
+### Bleed/Poison (固定几率)
+chance = min(100, Override or (base * (1 + inc/100) * more))
+
+### 异常伤害基础值
+baseVal = calcAilmentDamage(...) * data.misc[ailment.."PercentBase"] * MagnitudeEffect
+
+### 异常DPS
+DPSuncapped = baseVal * effectMod * rateMod * activeStacks * effMult
+DPSCapped = min(DPSuncapped, data.misc.DotDpsCap)
+
+### Chill/Shock 效果
+Chill: effect = ChillEffectMultiplier * (damage / threshold) * effectMod
+Shock: effect = 50 * (damage / threshold)^0.4 * effectMod
+
+### Poise 型异常 (Freeze/Electrocute/Stun/Pin)
+poiseBuildup = DamageScale / enemyPoiseThreshold * (1 + inc/100) * more * 100
+
+## 5. IMPALE
+
+storedDmg = 0.1 * (1 + ImpaleEffect_inc/100) * ImpaleEffect_more
+hitDmgMod = storedDmg * impaleStacks
+impaleResist = clamp(physRed + EnemyImpalePhysRed + impaleArmourRed, 0, PhysRedCap)
+DMGModifier = hitDmgMod * (1 - impaleResist/100) * impaleChance * impaleTaken
+ImpaleModifier = 1 + DMGModifier
+
+## 6. RESISTANCE & PENETRATION
+
+resist = enemyDB:Sum("BASE", cfg, type.."Resist")
+resist = clamp(resist, ResistFloor, maxResist)
+effMult *= (1 - max(resist - pen, minPen) / 100)  [penetration cannot reduce below minPen]
+
+## 7. ACCURACY & HIT CHANCE
+
+Accuracy = max(0, floor(base * (1 + inc/100) * more))
+hitChance(evasion, accuracy):
+  rawChance = (accuracy * 1.25) / (accuracy + evasion * 0.3) * 100
+  return clamp(round(rawChance), 5, 100)
+HitChance = AccuracyHitChance * (1 - enemyBlockChance/100)
+
+## 8. POE2 特有机制
+
+- 转换/Gain 防 double-dip: Gained as 基于转换前伤害
+- 异常系统: Ignite/Shock 改为阈值触发几率; Freeze/Electrocute/Stun 使用 Poise 系统
+- AilmentMagnitude: 替代老版效果倍率
+- Armour Break: 可破甲到负数增伤
+- Battlemage/Spellblade: 主手武器伤害加到法术
+- Barrage: 额外投射物转换为更多投射数

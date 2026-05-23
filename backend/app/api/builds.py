@@ -34,9 +34,9 @@ class GenerateRequest(BaseModel):
         min_length=5,
         max_length=1000,
         description="自然语言 BD 需求描述",
-        examples=["我想玩一个电系法师，中等预算，能刷图也能打王"],
+        examples=["我想玩一个电系法师，能刷图也能打王"],
     )
-    game_version: str = Field(default="3.26", description="POE2 版本号")
+    game_version: str = Field(default="0.4", description="POE2 版本号")
 
 
 class BuildCardResponse(BaseModel):

@@ -1,0 +1,288 @@
+# POE2 防御计算公式 — 从 PoB2 CalcDefence.lua 提取
+
+## 1. ARMOUR (护甲) -- 物理减伤公式
+
+### 核心公式
+PDR% = Armour / (Armour + RawDamage * ArmourRatio) * 100
+
+- data.misc.ArmourRatio -- 常数 (PoE1=5, PoE2待确认)
+- data.misc.DamageReductionCap -- 最大减伤上限
+- 类型独立上限: output[type.."DamageReductionMax"]
+
+### 完整护甲计算链
+1. effectiveAppliedArmour = (Armour * armourApplies%/100) * (1 + ArmourDefense)
+2. armourReduct = calcs.armourReduction(effectiveArmour, damage)
+3. armourReduct = min(DamageReductionMax, armourReduct)
+4. totalReduct = min(DamageReductionMax, armourReduct + flat_reduction)
+5. reductMult = 1 - max(min(MaxDR, totalReduct - enemyOverwhelm), 0)/100
+
+### MaxHit 反向二次方程解
+a*RAW^2 + b*RAW + c = 0
+a = ArmourRatio * DCM * (1 - flatDR + overwhelm)
+b = effArmour * (1 - flatDR + overwhelm) - effArmour - HPterm * ArmourRatio * DCM
+c = -HPterm * effArmour
+RAW = (sqrt(max(b^2-4ac, 0)) - b) / (2a)
+
+## 2. EVASION (闪避) -- 闪避率 & 命中交互
+
+### 玩家命中率
+hitChance% = max(min(accuracy*1.25/(accuracy+evasion*0.3)*100, 100), 5)
+
+### 怪物命中率
+monsterHitChance% = max(min((1-0.95*evasion/(evasion+4*accuracy))*100, 100), 5)
+玩家闪避率 = 100 - monsterHitChance%
+
+### 实际闪避计算
+EvadeChance = 100 - (monsterHitChance(Evasion, enemyAcc) - extraEvade) * enemyHitMod
+
+- evadeMax: data.misc.EvadeChanceCap
+- 远端惩罚: accuracy *= 1 - ((distance-20)/100)*0.9
+- Unlucky闪避: EvadeChance = EvadeChance^2 / 100
+- 熵系统: PoB仅提供期望值估算
+
+## 3. ENERGY SHIELD (能量护盾)
+
+### ES总量
+装备基底 + 全局加值, 乘以 inc/more 修正
+
+### ES充能上限 Recovery Cap
+- ArmourESRecoveryCap -> cap = Armour
+- EvasionESRecoveryCap -> cap = Evasion
+- 两者同时 -> cap = min(Armour, Evasion)
+
+### ES充能速率
+recharge = ES * EnergyShieldRechargeBase * (1+inc/100) * more
+output = round(recharge * RecoveryRateMod, 1)
+
+### ES充能延迟
+Delay = (baseDelay + flatFaster) / (1 + incFaster/100)
+
+### 混沌伤害对ES
+默认2x, ChaosNotDoubleESDamage 标志降为1x
+
+### ES穿透
+EnergyShieldBypass 百分比; UnblockedDamageDoesBypassES 让未格挡伤害100%穿透
+
+## 4. BLOCK (格挡)
+
+### 格挡上限
+- 攻击: BlockChanceMax = min(BaseBlockChanceMax + BlockChanceMax_mod, BlockChanceCap)
+- 法术: SpellBlockChanceMax = min(BaseSpellBlockChanceMax + SpellBlockChanceMax_mod, BlockChanceCap)
+
+### 攻击格挡
+baseBlock = 盾牌格挡值
+total = (baseBlock + flatBlock) * mod("BlockChance")
+BlockChance = min(total, BlockChanceMax)
+
+### 法术格挡
+SpellBlockChance = min(flatSpellBlock * mod, SpellBlockChanceMax)
+
+### 弹射物格挡
+ProjectileBlock = min(BlockChance + flatProjBlock*mod, BlockChanceMax)
+
+### 格挡效果
+BlockEffect = 100 - Sum("BlockEffect")
+DamageTakenOnBlock = 100 - BlockEffect
+
+### Lucky/Unlucky
+- Lucky: (1-(1-block/100)^2)*100
+- Unlucky: block/100*block
+
+## 5. RESISTANCES (抗性)
+
+### 抗性计算
+total = Sum("BASE", elem.."Resist", "ElementalResist") * max(mod, 0)
+total = m_modf(total)  -- 截断小数
+maxLim = Override or min(MaxResistCap, Sum(elem.."ResistMax", "ElementalResistMax"))
+final = max(min(total, maxLim), ResistFloor)
+
+### 穿透交互
+resMult = 1 - (resist>0 ? max(resist-enemyPen, 0) : resist) / 100
+穿透不将正抗性降到0以下; 负抗性不受穿透影响
+
+### Melding of the Flesh
+最高MaxResist覆盖全部元素
+
+### 格挡加成转抗性上限
+MaxBlockChanceModsApplyMaxResist -> ResistMax += BlockChanceMax
+
+## 6. DAMAGE TAKEN AS (伤害类型转换)
+
+### 转换表
+- DOT: source.."DamageTakenAs"..dest + "ElementalDamageTakenAs"..dest
+- Hit附加: source.."DamageFromHitsTakenAs"..dest
+- 自身保留: max(100 - destTotal, 0)
+
+### 伤害计算
+damageTakenAs = (同类型 ? max(1-totalTakenAs/100,0) : shift/100)
+damage = baseDmg * damageTakenAs
+damageTakenMods = max((1+takenInc/100)*takenMore, 0)
+resMult = 1 - resist/100
+reductMult = (1 - max(min(MaxDR, armourReduct+reduction), 0)/100) * damageTakenMods
+finalDamage = damage * resMult * reductMult
+
+## 7. MIND OVER MATTER (心灵升华)
+
+### 共享MoM
+sharedMoM = min(Sum("DamageTakenFromManaBeforeLife"), 100)
+poolProtected = sourcePool / (MoM%/100) * (1-MoM%/100)
+MoM>=100% -> poolProtected = 无限
+
+### 类型MoM
+typeMoM = min(Sum(type.."DamageTakenFromManaBeforeLife"), 100-shared)
+总计MoM = shared + type
+
+### 伤害分配
+MoMEffect = min(shared+type, 100)/100
+MoMDamage = damageRemainder * MoMEffect
+actualManaLoss = min(MoMDamage, MoMPool)
+
+## 8. WARD (结界) -- POE2机制
+
+### 基础值
+output.Ward = max(floor(total_ward), 0)
+
+### 伤害吸收
+tempDamage = min(damageRemainder * (1-wardBypass/100), ward)
+在 Aegis/Guard 之后、ES 之前消耗
+
+### 不破碎 Ward
+WardNotBreak && Ward>0 && hits<Ward -> 无限生存
+
+### 充能延迟
+WardRechargeDelay = baseDelay / (1 + WardRechargeFaster%/100)
+
+## 9. AILMENT AVOIDANCE / THRESHOLD
+
+### 异常阈值
+AilmentThreshold = calcLib.val(modDB, "AilmentThreshold")
+
+### 非元素异常避免
+AvoidChance = Immune?100 : floor(min(Sum("Avoid"..ailment, "AvoidAilments"), 100))
+
+### 元素异常避免
+AvoidChance = (Immune or ElementalAilmentImmune)?100 :
+  floor(min(Sum("Avoid"..ailment, "AvoidAilments", "AvoidElementalAilments")
+    + (ShockAvoidAppliesToAll?Sum("AvoidShock"):0), 100))
+
+### 法术压制转异常避免
+floor(spellSuppression% * suppChance) 加入 AvoidElementalAilments
+
+### 受到异常持续时间
+- 非元素: SelfDuration = inc * more / (100 + DebuffExpRate + SelfDebuffExpRate)
+- 元素: SelfDuration = more * inc / (100 + DebuffExpRate + SelfDebuffExpRate)
+
+## 10. STUN THRESHOLD (晕眩阈值)
+
+### 基础阈值
+- 默认 = Life
+- StunThresholdBasedOnES -> ES * StunThresholdES%
+- StunThresholdBasedOnMana -> Mana * StunThresholdMana%
+- CI -> Life值(CI前)
+- AddESToStunThreshold -> +ES * ESToStunThreshold%
+- 最终: StunThreshold = (base + modFlat) * (1+inc/100) * more
+
+### 晕眩避免
+StunImmune -> avoidChance=100
+ES>totalTakenHit -> 50%天生避免加成
+StunAvoidChance = 100 - (100-min(AvoidStun,100)) * (ES_protection?0.5:1)
+
+### 受到晕眩概率
+effectiveDmg = totalTakenHit + PhysicalTakenHit*0.25
+远程: *= PhysicalStunMult * (1+MeleeStunMult*3)/4
+近战: *= PhysicalStunMult
+baseStun = min(StunBaseMult * effectiveDmg / StunThreshold, 100)
+SelfStunChance = (baseStun>MinStunChanceNeeded?baseStun:0) * (100-avoidChance)/100
+
+### 晕眩时长
+StunDuration = ceil(baseDur*(1+incDur%)/(1+incRec%)*TickRate) / TickRate
+
+## 11. DEFLECT (偏转) -- POE2特有
+
+### 偏转概率
+rawChance = (accuracy*0.9) / (accuracy + deflection*0.2) * 100
+DeflectChance% = 100 - max(min(round(rawChance), 100), 0)
+
+### 偏转评级
+DeflectionRating = (Evasion*EvasionGainAsDeflection% + Armour*ArmourGainAsDeflection%) * mod
+
+### Lucky偏转
+(1-(1-chance/100)^2)*100
+
+### 偏转效果
+min(max(data.misc.DeflectEffect + Sum("DeflectEffect"), 0), 100)
+
+### 在EHP/MaxHit中
+effectiveDeflectMulti = 1 - DeflectChance*DeflectEffect/10000
+
+## 12. POE2-SPECIFIC DEFENSE MECHANICS
+
+| 机制 | 说明 |
+|------|------|
+| Spirit | 第三资源池，消耗于光环/技能激活 |
+| Darkness | Acolyte of Chayula: Darkness = base*(1+inc%), 未保留部分作防御 |
+| Eternal Life | ES承受全部伤害(不经过生命) |
+| Unbreakable | Titan: 胸甲护甲2x; IR+Unbreakable->闪避2x |
+| DoubleBodyArmourDefence | 胸甲防御翻倍(Ward/ES/Armour/Evasion) |
+| Armour对非物理承伤 | ArmourAppliesTo[type]DamageTaken / EvasionAppliesTo[type] |
+| 非格挡穿透ES | UnblockedDamageDoesBypassES -> 100%穿透 |
+| EnergyShieldProtectsMana | ES在魔力前消耗 |
+| ES转Ward | EnergyShieldToWard 标志 |
+| 胸甲转Ward | ConvertBodyArmourArmourEvasionToWard |
+| 格挡加成转抗性上限 | MaxBlockChanceModsApplyMaxResist |
+
+## 13. DAMAGE MITIGATION CHAIN (全链路)
+
+敌方原始伤害 (Phys/Light/Cold/Fire/Chaos)
+  -> [Allies分流] FrostShield/Spectres/Totems/SoulLink 等
+  -> [计入Recoup池]
+  -> [Aegis] 类型Aegis / SharedElementalAegis / SharedAegis (完全吸收)
+  -> [Guard] 类型Guard(GuardAbsorbRate%) / SharedGuard(SharedGuardAbsorbRate%)
+  -> [Ward] Ward*(1-wardBypass%); WardNotBreak时不破碎
+  -> [正序收集] -> damageRemaindersBeforeES
+  -> [逆序: Chaos->Fire->Cold->Lightning->Physical]:
+       -> [ES] Chaos*2判定/ES穿透/EternalLife
+       -> [MoM] damage*MoMEffect -> min(mana)
+       -> [LifeLossPrevent] Petrified Blood分流(above/below half)
+       -> [Life] 最终
+  -> [Overkill] 超出
+
+## 14. EHP / MAX HIT
+
+### EHP
+- TotalPool = LifeRecov + MoM加成 + ES/(1-esBypass)/chaosMult + Guard
+- numberOfHitsToDie = 迭代减少防御层直到Life=0
+- TotalHits = MitigatedHits / (1 - ConfiguredNotHitChance/100)
+- TotalEHP = TotalHits * totalEnemyDamageIn
+
+### MaxHit
+- 无护甲100%转换: max(TotalPool/DCM/(ResMult*(1-DR))-flat,0)/TakenMulti
+- 有护甲: 二次方程解
+- 转换平滑: 最多 maxHitSmoothingPasses 次迭代
+
+### DOT EHP
+DotEHP = TotalPool / TakenDotMult
+
+## 15. KEY CONSTANTS (data.misc)
+
+| 常数 | 说明 |
+|------|------|
+| ArmourRatio | 护甲公式分母常数 |
+| LowPoolThreshold | 低血/低魔阈值比例 |
+| MaxResistCap | 最大抗性硬上限 |
+| ResistFloor | 抗性下限 |
+| BlockChanceCap | 格挡上限 |
+| EvadeChanceCap | 闪避上限 |
+| SuppressionChanceCap | 法术压制上限 |
+| SuppressionEffect | 法术压制基础效果% |
+| DodgeChanceCap | 闪躲上限 |
+| DamageReductionCap | 通用减伤上限 |
+| AvoidChanceCap | 伤害避免上限 |
+| EnergyShieldRechargeBase | ES基础充能速率 |
+| EnergyShieldRechargeDelay | ES充能基础延迟 |
+| WardRechargeDelay | 结界充能基础延迟 |
+| StunBaseMult | 晕眩基础乘数 |
+| MinStunChanceNeeded | 最小触发晕眩概率 |
+| StunBaseDuration | 基础晕眩时长 |
+| ServerTickRate | 服务器Tick率 |
+| DeflectEffect | 偏转基础效果 |

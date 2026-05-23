@@ -394,11 +394,11 @@ class KnowledgeGraphSync:
         count = 0
         for chain in CONVERSION_CHAINS:
             cypher = """
-            MATCH (d1:DamageType {name: $from})
-            MATCH (d2:DamageType {name: $to})
+            MATCH (d1:DamageType {name: $src})
+            MATCH (d2:DamageType {name: $dst})
             MERGE (d1)-[:CONVERTS_TO]->(d2)
             """
-            await self._neo4j.execute_write(cypher, from_=chain[0], to=chain[1])
+            await self._neo4j.execute_write(cypher, src=chain[0], dst=chain[1])
             count += 1
         return count
 
@@ -456,8 +456,8 @@ class KnowledgeGraphSync:
 
         for (a, b), cnt in pairs.items():
             cypher = """
-            MATCH (s1:Skill {skill_id: $a})
-            MATCH (s2:Skill {skill_id: $b})
+            MATCH (s1:Skill {name: $a})
+            MATCH (s2:Skill {name: $b})
             MERGE (s1)-[r:PAIRED_WITH]->(s2)
             SET r.co_occurrence = $count
             """

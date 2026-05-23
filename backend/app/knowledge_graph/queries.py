@@ -36,11 +36,8 @@ class KnowledgeQueries:
         cypher = """
         MATCH (s1:Skill)-[r:PAIRED_WITH]-(s2:Skill)
         WHERE toLower(s1.name) CONTAINS toLower($name)
-           OR toLower(s1.skill_id) CONTAINS toLower($name)
         RETURN s2.name AS skill_name,
                s2.skill_id AS skill_id,
-               s2.type AS skill_type,
-               s2.tags AS tags,
                r.co_occurrence AS co_occurrence
         ORDER BY r.co_occurrence DESC
         LIMIT $limit

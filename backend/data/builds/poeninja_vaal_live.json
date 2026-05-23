@@ -1,0 +1,2630 @@
+[
+  {
+    "name": "drubringer",
+    "account": "methanman-2640",
+    "level": 100,
+    "ascendancy": "Class_None",
+    "class_id": null,
+    "main_skill": "Walking Calamity",
+    "life": 3627,
+    "energy_shield": 0,
+    "ehp": 29000.0,
+    "dps": 783000.0,
+    "dps_display": "783k",
+    "skills": [
+      {
+        "id": 1,
+        "name": "Walking Calamity"
+      },
+      {
+        "id": 2,
+        "name": "Herald of Ice"
+      },
+      {
+        "id": 3,
+        "name": "Ferocious Roar"
+      },
+      {
+        "id": 4,
+        "name": "Pounce"
+      },
+      {
+        "id": 5,
+        "name": "Furious Slam"
+      }
+    ],
+    "keystones": [
+      {
+        "id": 4,
+        "name": "Colossal Capacity"
+      }
+    ],
+    "league": "vaal"
+  },
+  {
+    "name": "ResurrectTwiceAgain",
+    "account": "heygyus-0416",
+    "level": 100,
+    "ascendancy": "Titan",
+    "class_id": 1,
+    "main_skill": "Tectonic Slams",
+    "life": 2642,
+    "energy_shield": 194,
+    "ehp": 15000.0,
+    "dps": 411000.0,
+    "dps_display": "411k",
+    "skills": [
+      {
+        "id": 38,
+        "name": "Tectonic Slams"
+      },
+      {
+        "id": 39,
+        "name": "Bow Shot"
+      },
+      {
+        "id": 40,
+        "name": "Toxic Growth"
+      },
+      {
+        "id": 41,
+        "name": "Poisonburst Arrow"
+      },
+      {
+        "id": 42,
+        "name": "Vine Arrow"
+      },
+      {
+        "id": 43,
+        "name": "Gas Arrow"
+      },
+      {
+        "id": 44,
+        "name": "Herald of Blood"
+      },
+      {
+        "id": 45,
+        "name": "Wind Dancer"
+      }
+    ],
+    "keystones": [],
+    "league": "vaal"
+  },
+  {
+    "name": "xxxTheWizardOfOsu",
+    "account": "Prec0cious-1317",
+    "level": 100,
+    "ascendancy": "Amazon",
+    "class_id": 2,
+    "main_skill": "Heightened Curse",
+    "life": 3645,
+    "energy_shield": 0,
+    "ehp": 86000.0,
+    "dps": 33000.0,
+    "dps_display": "33k",
+    "skills": [
+      {
+        "id": 76,
+        "name": "Heightened Curse"
+      },
+      {
+        "id": 77,
+        "name": "Fortifying Cry"
+      },
+      {
+        "id": 16,
+        "name": "Precision I"
+      },
+      {
+        "id": 43,
+        "name": "Gas Arrow"
+      },
+      {
+        "id": 78,
+        "name": "Infernal Cry"
+      }
+    ],
+    "keystones": [],
+    "league": "vaal"
+  },
+  {
+    "name": "peakAengus",
+    "account": "Aengus-2685",
+    "level": 100,
+    "ascendancy": "Smith of Kitava",
+    "class_id": 3,
+    "main_skill": "Ahn's Citadel",
+    "life": 1527,
+    "energy_shield": 5712,
+    "ehp": 34000.0,
+    "dps": 27000000.0,
+    "dps_display": "27M",
+    "skills": [
+      {
+        "id": 92,
+        "name": "Ahn's Citadel"
+      },
+      {
+        "id": 45,
+        "name": "Wind Dancer"
+      },
+      {
+        "id": 42,
+        "name": "Vine Arrow"
+      },
+      {
+        "id": 39,
+        "name": "Bow Shot"
+      },
+      {
+        "id": 41,
+        "name": "Poisonburst Arrow"
+      },
+      {
+        "id": 62,
+        "name": "Chaos Attunement"
+      },
+      {
+        "id": 40,
+        "name": "Toxic Growth"
+      }
+    ],
+    "keystones": [],
+    "league": "vaal"
+  },
+  {
+    "name": "FOV_CuAniu",
+    "account": "쿠아뉴-1147",
+    "level": 100,
+    "ascendancy": "Smith of Kitava",
+    "class_id": 3,
+    "main_skill": "Tectonic Slams",
+    "life": 1520,
+    "energy_shield": 3002,
+    "ehp": 23000.0,
+    "dps": 288000.0,
+    "dps_display": "288k",
+    "skills": [
+      {
+        "id": 38,
+        "name": "Tectonic Slams"
+      },
+      {
+        "id": 43,
+        "name": "Gas Arrow"
+      },
+      {
+        "id": 66,
+        "name": "Encroaching Ground"
+      },
+      {
+        "id": 41,
+        "name": "Poisonburst Arrow"
+      },
+      {
+        "id": 42,
+        "name": "Vine Arrow"
+      },
+      {
+        "id": 40,
+        "name": "Toxic Growth"
+      },
+      {
+        "id": 39,
+        "name": "Bow Shot"
+      },
+      {
+        "id": 44,
+        "name": "Herald of Blood"
+      },
+      {
+        "id": 3,
+        "name": "Ferocious Roar"
+      }
+    ],
+    "keystones": [],
+    "league": "vaal"
+  },
+  {
+    "name": "三角是只小阿比逼站",
+    "account": "chuckzjj-2689",
+    "level": 100,
+    "ascendancy": "Warbringer",
+    "class_id": 14,
+    "main_skill": "Zarokh's Revolt",
+    "life": 1581,
+    "energy_shield": 6723,
+    "ehp": 12000.0,
+    "dps": 173000.0,
+    "dps_display": "173k",
+    "skills": [
+      {
+        "id": 301,
+        "name": "Zarokh's Revolt"
+      },
+      {
+        "id": 226,
+        "name": "Spear Throw"
+      },
+      {
+        "id": 116,
+        "name": "Arctic Armour"
+      },
+      {
+        "id": 262,
+        "name": "Explosive Spear"
+      },
+      {
+        "id": 111,
+        "name": "Escape Shot"
+      },
+      {
+        "id": 306,
+        "name": "Bonestorm"
+      },
+      {
+        "id": 274,
+        "name": "Remnant Potency III"
+      },
+      {
+        "id": 303,
+        "name": "Entangle"
+      },
+      {
+        "id": 71,
+        "name": "Pin II"
+      }
+    ],
+    "keystones": [
+      {
+        "id": 161,
+        "name": "Answered Call"
+      },
+      {
+        "id": 67,
+        "name": "Sacrifice of Flesh"
+      },
+      {
+        "id": 73,
+        "name": "Sustainable Practices"
+      }
+    ],
+    "league": "vaal"
+  },
+  {
+    "name": "바알_라벨리아",
+    "account": "alsyddll-6970",
+    "level": 100,
+    "ascendancy": "Smith of Kitava",
+    "class_id": 3,
+    "main_skill": "Toxic Growth",
+    "life": 1484,
+    "energy_shield": 3823,
+    "ehp": 28000.0,
+    "dps": 274000.0,
+    "dps_display": "274k",
+    "skills": [
+      {
+        "id": 40,
+        "name": "Toxic Growth"
+      },
+      {
+        "id": 42,
+        "name": "Vine Arrow"
+      },
+      {
+        "id": 43,
+        "name": "Gas Arrow"
+      },
+      {
+        "id": 100,
+        "name": "Mobility"
+      },
+      {
+        "id": 45,
+        "name": "Wind Dancer"
+      },
+      {
+        "id": 39,
+        "name": "Bow Shot"
+      }
+    ],
+    "keystones": [],
+    "league": "vaal"
+  },
+  {
+    "name": "TempestLevels",
+    "account": "Tempest-2044",
+    "level": 100,
+    "ascendancy": "Pathfinder",
+    "class_id": 4,
+    "main_skill": "Escape Shot",
+    "life": 1697,
+    "energy_shield": 509,
+    "ehp": 14000.0,
+    "dps": 639000.0,
+    "dps_display": "639k",
+    "skills": [
+      {
+        "id": 111,
+        "name": "Escape Shot"
+      },
+      {
+        "id": 112,
+        "name": "Living Bomb"
+      },
+      {
+        "id": 113,
+        "name": "Life Remnants"
+      },
+      {
+        "id": 114,
+        "name": "Frost Wall"
+      },
+      {
+        "id": 115,
+        "name": "Elemental Weakness"
+      },
+      {
+        "id": 116,
+        "name": "Arctic Armour"
+      },
+      {
+        "id": 62,
+        "name": "Chaos Attunement"
+      }
+    ],
+    "keystones": [
+      {
+        "id": 24,
+        "name": "Path of the Warrior"
+      },
+      {
+        "id": 25,
+        "name": "Mind Over Matter"
+      }
+    ],
+    "league": "vaal"
+  },
+  {
+    "name": "TimmortalFive",
+    "account": "Timmortal-2396",
+    "level": 100,
+    "ascendancy": "Ritualist",
+    "class_id": 5,
+    "main_skill": "Cast on Elemental Ailment",
+    "life": 1595,
+    "energy_shield": 0,
+    "ehp": 10000.0,
+    "dps": 114000.0,
+    "dps_display": "114k",
+    "skills": [
+      {
+        "id": 138,
+        "name": "Cast on Elemental Ailment"
+      },
+      {
+        "id": 139,
+        "name": "Elemental Storm"
+      },
+      {
+        "id": 111,
+        "name": "Escape Shot"
+      },
+      {
+        "id": 133,
+        "name": "Cold Mastery"
+      },
+      {
+        "id": 114,
+        "name": "Frost Wall"
+      },
+      {
+        "id": 140,
+        "name": "Pinnacle of Power"
+      },
+      {
+        "id": 141,
+        "name": "Firestorm"
+      },
+      {
+        "id": 142,
+        "name": "Frost Bomb"
+      }
+    ],
+    "keystones": [
+      {
+        "id": 24,
+        "name": "Path of the Warrior"
+      },
+      {
+        "id": 25,
+        "name": "Mind Over Matter"
+      }
+    ],
+    "league": "vaal"
+  },
+  {
+    "name": "싸먼늑드루",
+    "account": "Chaos_W-2442",
+    "level": 100,
+    "ascendancy": "Stormweaver",
+    "class_id": 6,
+    "main_skill": "Astral Projection",
+    "life": 2619,
+    "energy_shield": 1116,
+    "ehp": 25000.0,
+    "dps": 136000.0,
+    "dps_display": "136k",
+    "skills": [
+      {
+        "id": 155,
+        "name": "Astral Projection"
+      },
+      {
+        "id": 156,
+        "name": "Shred"
+      },
+      {
+        "id": 103,
+        "name": "Overextend"
+      },
+      {
+        "id": 3,
+        "name": "Ferocious Roar"
+      },
+      {
+        "id": 1,
+        "name": "Walking Calamity"
+      },
+      {
+        "id": 157,
+        "name": "Lunar Blessing"
+      },
+      {
+        "id": 158,
+        "name": "Cross Slash"
+      }
+    ],
+    "keystones": [],
+    "league": "vaal"
+  },
+  {
+    "name": "Asmo_CarryDeluxe",
+    "account": "AsmodeusPOE-0579",
+    "level": 100,
+    "ascendancy": "Shaman",
+    "class_id": 7,
+    "main_skill": "Living Bomb",
+    "life": 3525,
+    "energy_shield": 5709,
+    "ehp": 23000.0,
+    "dps": 170000.0,
+    "dps_display": "170k",
+    "skills": [
+      {
+        "id": 112,
+        "name": "Living Bomb"
+      },
+      {
+        "id": 175,
+        "name": "Deep Freeze"
+      },
+      {
+        "id": 176,
+        "name": "Lightning Bolt"
+      },
+      {
+        "id": 177,
+        "name": "Sigil of Power"
+      },
+      {
+        "id": 178,
+        "name": "Soul Offering"
+      },
+      {
+        "id": 179,
+        "name": "Spark"
+      },
+      {
+        "id": 180,
+        "name": "Flame Wall"
+      },
+      {
+        "id": 181,
+        "name": "Temporal Chains"
+      },
+      {
+        "id": 151,
+        "name": "Cursed Ground"
+      },
+      {
+        "id": 62,
+        "name": "Chaos Attunement"
+      },
+      {
+        "id": 182,
+        "name": "Orb of Storms"
+      }
+    ],
+    "keystones": [
+      {
+        "id": 4,
+        "name": "Colossal Capacity"
+      }
+    ],
+    "league": "vaal"
+  },
+  {
+    "name": "SYDMoreLadderAbuse",
+    "account": "sydtko-1525",
+    "level": 100,
+    "ascendancy": "Pathfinder",
+    "class_id": 4,
+    "main_skill": "Boundless Energy II",
+    "life": 1645,
+    "energy_shield": 2488,
+    "ehp": 21000.0,
+    "dps": 258000.0,
+    "dps_display": "258k",
+    "skills": [
+      {
+        "id": 196,
+        "name": "Boundless Energy II"
+      },
+      {
+        "id": 197,
+        "name": "Blood Boil"
+      },
+      {
+        "id": 198,
+        "name": "Lightning Arrow"
+      },
+      {
+        "id": 199,
+        "name": "Herald of Ash"
+      },
+      {
+        "id": 200,
+        "name": "Tornado Shot"
+      },
+      {
+        "id": 201,
+        "name": "Herald of Thunder"
+      },
+      {
+        "id": 44,
+        "name": "Herald of Blood"
+      },
+      {
+        "id": 3,
+        "name": "Ferocious Roar"
+      },
+      {
+        "id": 202,
+        "name": "Electrocuting Arrow"
+      }
+    ],
+    "keystones": [],
+    "league": "vaal"
+  },
+  {
+    "name": "CUTEASIANGIRL",
+    "account": "mileycyrus143-6439",
+    "level": 100,
+    "ascendancy": "Class_None",
+    "class_id": null,
+    "main_skill": "Shield Wall",
+    "life": 3912,
+    "energy_shield": 0,
+    "ehp": 48000.0,
+    "dps": 23000.0,
+    "dps_display": "23k",
+    "skills": [
+      {
+        "id": 79,
+        "name": "Shield Wall"
+      },
+      {
+        "id": 78,
+        "name": "Infernal Cry"
+      },
+      {
+        "id": 83,
+        "name": "Enraged Warcry I"
+      },
+      {
+        "id": 76,
+        "name": "Heightened Curse"
+      },
+      {
+        "id": 89,
+        "name": "Vitality II"
+      },
+      {
+        "id": 77,
+        "name": "Fortifying Cry"
+      },
+      {
+        "id": 214,
+        "name": "Precision II"
+      }
+    ],
+    "keystones": [],
+    "league": "vaal"
+  },
+  {
+    "name": "sotsunakuPFfov",
+    "account": "BansheesVeil-4479",
+    "level": 100,
+    "ascendancy": "Smith of Kitava",
+    "class_id": 3,
+    "main_skill": "Lightning Bolt",
+    "life": 1561,
+    "energy_shield": 9077,
+    "ehp": 23000.0,
+    "dps": 378000.0,
+    "dps_display": "378k",
+    "skills": [
+      {
+        "id": 176,
+        "name": "Lightning Bolt"
+      },
+      {
+        "id": 178,
+        "name": "Soul Offering"
+      },
+      {
+        "id": 116,
+        "name": "Arctic Armour"
+      }
+    ],
+    "keystones": [
+      {
+        "id": 4,
+        "name": "Colossal Capacity"
+      }
+    ],
+    "league": "vaal"
+  },
+  {
+    "name": "MASTER_VIET_I",
+    "account": "masterviet-3827",
+    "level": 100,
+    "ascendancy": "Smith of Kitava",
+    "class_id": 3,
+    "main_skill": "Cluster Grenade",
+    "life": 2421,
+    "energy_shield": 325,
+    "ehp": 19000.0,
+    "dps": 105000.0,
+    "dps_display": "105k",
+    "skills": [
+      {
+        "id": 357,
+        "name": "Cluster Grenade"
+      },
+      {
+        "id": 197,
+        "name": "Blood Boil"
+      },
+      {
+        "id": 1,
+        "name": "Walking Calamity"
+      },
+      {
+        "id": 199,
+        "name": "Herald of Ash"
+      },
+      {
+        "id": 110,
+        "name": "Salvo"
+      },
+      {
+        "id": 200,
+        "name": "Tornado Shot"
+      },
+      {
+        "id": 202,
+        "name": "Electrocuting Arrow"
+      },
+      {
+        "id": 320,
+        "name": "Ice-Tipped Arrows"
+      }
+    ],
+    "keystones": [],
+    "league": "vaal"
+  },
+  {
+    "name": "あむよん",
+    "account": "amrita0612-3170",
+    "level": 100,
+    "ascendancy": "Titan",
+    "class_id": 1,
+    "main_skill": "Elemental Conflux",
+    "life": 1890,
+    "energy_shield": 2323,
+    "ehp": 50000.0,
+    "dps": 113000.0,
+    "dps_display": "113k",
+    "skills": [
+      {
+        "id": 225,
+        "name": "Elemental Conflux"
+      },
+      {
+        "id": 226,
+        "name": "Spear Throw"
+      },
+      {
+        "id": 200,
+        "name": "Tornado Shot"
+      },
+      {
+        "id": 227,
+        "name": "Impurity"
+      },
+      {
+        "id": 44,
+        "name": "Herald of Blood"
+      },
+      {
+        "id": 228,
+        "name": "Barrage"
+      },
+      {
+        "id": 229,
+        "name": "Whirling Slash"
+      },
+      {
+        "id": 1,
+        "name": "Walking Calamity"
+      }
+    ],
+    "keystones": [
+      {
+        "id": 48,
+        "name": "Traveller's Wisdom"
+      }
+    ],
+    "league": "vaal"
+  },
+  {
+    "name": "YashaTekhnikVaal",
+    "account": "Cortisol322-4333",
+    "level": 100,
+    "ascendancy": "Pathfinder",
+    "class_id": 4,
+    "main_skill": "Ahn's Citadel",
+    "life": 1628,
+    "energy_shield": 1108,
+    "ehp": 14000.0,
+    "dps": 656000.0,
+    "dps_display": "656k",
+    "skills": [
+      {
+        "id": 92,
+        "name": "Ahn's Citadel"
+      },
+      {
+        "id": 242,
+        "name": "Cold Attunement"
+      },
+      {
+        "id": 243,
+        "name": "Flicker Strike"
+      },
+      {
+        "id": 244,
+        "name": "Charged Staff"
+      },
+      {
+        "id": 245,
+        "name": "Whirling Assault"
+      },
+      {
+        "id": 246,
+        "name": "Profane Ritual"
+      },
+      {
+        "id": 247,
+        "name": "Falling Thunder"
+      },
+      {
+        "id": 44,
+        "name": "Herald of Blood"
+      },
+      {
+        "id": 1,
+        "name": "Walking Calamity"
+      },
+      {
+        "id": 248,
+        "name": "Mantra of Destruction"
+      }
+    ],
+    "keystones": [],
+    "league": "vaal"
+  },
+  {
+    "name": "블메_다래리",
+    "account": "니우트-6957",
+    "level": 100,
+    "ascendancy": "Shaman",
+    "class_id": 7,
+    "main_skill": "Living Bomb",
+    "life": 2596,
+    "energy_shield": 3940,
+    "ehp": 16000.0,
+    "dps": 246000.0,
+    "dps_display": "246k",
+    "skills": [
+      {
+        "id": 112,
+        "name": "Living Bomb"
+      },
+      {
+        "id": 147,
+        "name": "Heightened Charges"
+      },
+      {
+        "id": 1,
+        "name": "Walking Calamity"
+      },
+      {
+        "id": 200,
+        "name": "Tornado Shot"
+      },
+      {
+        "id": 261,
+        "name": "Hourglass"
+      },
+      {
+        "id": 262,
+        "name": "Explosive Spear"
+      },
+      {
+        "id": 263,
+        "name": "Blasphemy"
+      }
+    ],
+    "keystones": [
+      {
+        "id": 52,
+        "name": "Sanguine Tides"
+      }
+    ],
+    "league": "vaal"
+  },
+  {
+    "name": "看看你的牛子",
+    "account": "Whiteyang123456-2065",
+    "level": 100,
+    "ascendancy": "Blood Mage",
+    "class_id": 8,
+    "main_skill": "Temporal Chains",
+    "life": 1643,
+    "energy_shield": 0,
+    "ehp": 16000.0,
+    "dps": 186000.0,
+    "dps_display": "186k",
+    "skills": [
+      {
+        "id": 181,
+        "name": "Temporal Chains"
+      },
+      {
+        "id": 268,
+        "name": "Zerphi's Infamy"
+      },
+      {
+        "id": 269,
+        "name": "Ember Fusillade"
+      },
+      {
+        "id": 116,
+        "name": "Arctic Armour"
+      },
+      {
+        "id": 133,
+        "name": "Cold Mastery"
+      },
+      {
+        "id": 180,
+        "name": "Flame Wall"
+      },
+      {
+        "id": 151,
+        "name": "Cursed Ground"
+      }
+    ],
+    "keystones": [
+      {
+        "id": 24,
+        "name": "Path of the Warrior"
+      },
+      {
+        "id": 57,
+        "name": "Forced Outcome"
+      },
+      {
+        "id": 58,
+        "name": "Scarred Faith"
+      },
+      {
+        "id": 25,
+        "name": "Mind Over Matter"
+      },
+      {
+        "id": 52,
+        "name": "Sanguine Tides"
+      },
+      {
+        "id": 59,
+        "name": "Wildsurge Incantation"
+      },
+      {
+        "id": 60,
+        "name": "Hollow Palm Technique"
+      }
+    ],
+    "league": "vaal"
+  },
+  {
+    "name": "長毛種の猫",
+    "account": "samo-4927",
+    "level": 100,
+    "ascendancy": "Oracle",
+    "class_id": 9,
+    "main_skill": "Cast on Elemental Ailment",
+    "life": 1,
+    "energy_shield": 9411,
+    "ehp": 23000.0,
+    "dps": 156000.0,
+    "dps_display": "156k",
+    "skills": [
+      {
+        "id": 138,
+        "name": "Cast on Elemental Ailment"
+      },
+      {
+        "id": 176,
+        "name": "Lightning Bolt"
+      },
+      {
+        "id": 274,
+        "name": "Remnant Potency III"
+      },
+      {
+        "id": 181,
+        "name": "Temporal Chains"
+      },
+      {
+        "id": 114,
+        "name": "Frost Wall"
+      },
+      {
+        "id": 140,
+        "name": "Pinnacle of Power"
+      },
+      {
+        "id": 275,
+        "name": "Convalescence"
+      },
+      {
+        "id": 262,
+        "name": "Explosive Spear"
+      },
+      {
+        "id": 178,
+        "name": "Soul Offering"
+      }
+    ],
+    "keystones": [
+      {
+        "id": 61,
+        "name": "Vaal Pact"
+      },
+      {
+        "id": 58,
+        "name": "Scarred Faith"
+      },
+      {
+        "id": 62,
+        "name": "Elemental Equilibrium"
+      }
+    ],
+    "league": "vaal"
+  },
+  {
+    "name": "CosmoPathfinder_FotV",
+    "account": "CosmoFairly-4143",
+    "level": 100,
+    "ascendancy": "Smith of Kitava",
+    "class_id": 3,
+    "main_skill": "Despair",
+    "life": 2038,
+    "energy_shield": 1605,
+    "ehp": 31000.0,
+    "dps": 204000.0,
+    "dps_display": "204k",
+    "skills": [
+      {
+        "id": 72,
+        "name": "Despair"
+      },
+      {
+        "id": 66,
+        "name": "Encroaching Ground"
+      },
+      {
+        "id": 43,
+        "name": "Gas Arrow"
+      },
+      {
+        "id": 41,
+        "name": "Poisonburst Arrow"
+      },
+      {
+        "id": 39,
+        "name": "Bow Shot"
+      },
+      {
+        "id": 42,
+        "name": "Vine Arrow"
+      },
+      {
+        "id": 40,
+        "name": "Toxic Growth"
+      }
+    ],
+    "keystones": [],
+    "league": "vaal"
+  },
+  {
+    "name": "Kajean",
+    "account": "Kajean-2088",
+    "level": 100,
+    "ascendancy": "Stormweaver",
+    "class_id": 6,
+    "main_skill": "Rampage",
+    "life": 3564,
+    "energy_shield": 283,
+    "ehp": 23000.0,
+    "dps": 172000.0,
+    "dps_display": "172k",
+    "skills": [
+      {
+        "id": 6,
+        "name": "Rampage"
+      },
+      {
+        "id": 3,
+        "name": "Ferocious Roar"
+      },
+      {
+        "id": 1,
+        "name": "Walking Calamity"
+      },
+      {
+        "id": 284,
+        "name": "Hex Bloom"
+      },
+      {
+        "id": 2,
+        "name": "Herald of Ice"
+      },
+      {
+        "id": 262,
+        "name": "Explosive Spear"
+      },
+      {
+        "id": 5,
+        "name": "Furious Slam"
+      },
+      {
+        "id": 4,
+        "name": "Pounce"
+      }
+    ],
+    "keystones": [
+      {
+        "id": 65,
+        "name": "Druidic Champion"
+      }
+    ],
+    "league": "vaal"
+  },
+  {
+    "name": "ttv_RsFearless",
+    "account": "RsFearless-1355",
+    "level": 100,
+    "ascendancy": "Shaman",
+    "class_id": 7,
+    "main_skill": "Living Bomb",
+    "life": 3134,
+    "energy_shield": 7802,
+    "ehp": 28000.0,
+    "dps": 1000000.0,
+    "dps_display": "1.0M",
+    "skills": [
+      {
+        "id": 112,
+        "name": "Living Bomb"
+      },
+      {
+        "id": 176,
+        "name": "Lightning Bolt"
+      },
+      {
+        "id": 292,
+        "name": "Fist of War III"
+      },
+      {
+        "id": 293,
+        "name": "Ball Lightning"
+      },
+      {
+        "id": 181,
+        "name": "Temporal Chains"
+      },
+      {
+        "id": 114,
+        "name": "Frost Wall"
+      },
+      {
+        "id": 178,
+        "name": "Soul Offering"
+      },
+      {
+        "id": 182,
+        "name": "Orb of Storms"
+      },
+      {
+        "id": 115,
+        "name": "Elemental Weakness"
+      }
+    ],
+    "keystones": [
+      {
+        "id": 4,
+        "name": "Colossal Capacity"
+      }
+    ],
+    "league": "vaal"
+  },
+  {
+    "name": "Matatan",
+    "account": "Matatan-8827",
+    "level": 100,
+    "ascendancy": "Stormweaver",
+    "class_id": 6,
+    "main_skill": "Fulmination",
+    "life": 1607,
+    "energy_shield": 4395,
+    "ehp": 42000.0,
+    "dps": 105000.0,
+    "dps_display": "105k",
+    "skills": [
+      {
+        "id": 486,
+        "name": "Fulmination"
+      },
+      {
+        "id": 3,
+        "name": "Ferocious Roar"
+      },
+      {
+        "id": 584,
+        "name": "Devour"
+      },
+      {
+        "id": 582,
+        "name": "Companion: Scute Lizard"
+      },
+      {
+        "id": 583,
+        "name": "Flame Breath"
+      },
+      {
+        "id": 103,
+        "name": "Overextend"
+      },
+      {
+        "id": 738,
+        "name": "Manifest Weapon"
+      },
+      {
+        "id": 1,
+        "name": "Walking Calamity"
+      },
+      {
+        "id": 585,
+        "name": "Oil Barrage"
+      },
+      {
+        "id": 158,
+        "name": "Cross Slash"
+      }
+    ],
+    "keystones": [
+      {
+        "id": 70,
+        "name": "Conduit"
+      }
+    ],
+    "league": "vaal"
+  },
+  {
+    "name": "Ithaax",
+    "account": "Ithax-6772",
+    "level": 100,
+    "ascendancy": "Blood Mage",
+    "class_id": 8,
+    "main_skill": "Frost Wall",
+    "life": 1734,
+    "energy_shield": 0,
+    "ehp": 19000.0,
+    "dps": 116000000.0,
+    "dps_display": "116M",
+    "skills": [
+      {
+        "id": 114,
+        "name": "Frost Wall"
+      },
+      {
+        "id": 176,
+        "name": "Lightning Bolt"
+      },
+      {
+        "id": 178,
+        "name": "Soul Offering"
+      },
+      {
+        "id": 177,
+        "name": "Sigil of Power"
+      },
+      {
+        "id": 116,
+        "name": "Arctic Armour"
+      }
+    ],
+    "keystones": [
+      {
+        "id": 24,
+        "name": "Path of the Warrior"
+      },
+      {
+        "id": 67,
+        "name": "Sacrifice of Flesh"
+      },
+      {
+        "id": 68,
+        "name": "Blackflame Covenant"
+      },
+      {
+        "id": 25,
+        "name": "Mind Over Matter"
+      },
+      {
+        "id": 69,
+        "name": "Ritual Cadence"
+      },
+      {
+        "id": 52,
+        "name": "Sanguine Tides"
+      },
+      {
+        "id": 59,
+        "name": "Wildsurge Incantation"
+      }
+    ],
+    "league": "vaal"
+  },
+  {
+    "name": "微醺的小法啊",
+    "account": "daxiong-3966",
+    "level": 100,
+    "ascendancy": "Shaman",
+    "class_id": 7,
+    "main_skill": "Living Bomb",
+    "life": 3018,
+    "energy_shield": 0,
+    "ehp": 22000.0,
+    "dps": 433000.0,
+    "dps_display": "433k",
+    "skills": [
+      {
+        "id": 112,
+        "name": "Living Bomb"
+      },
+      {
+        "id": 139,
+        "name": "Elemental Storm"
+      },
+      {
+        "id": 141,
+        "name": "Firestorm"
+      },
+      {
+        "id": 140,
+        "name": "Pinnacle of Power"
+      },
+      {
+        "id": 151,
+        "name": "Cursed Ground"
+      },
+      {
+        "id": 114,
+        "name": "Frost Wall"
+      },
+      {
+        "id": 182,
+        "name": "Orb of Storms"
+      },
+      {
+        "id": 178,
+        "name": "Soul Offering"
+      }
+    ],
+    "keystones": [
+      {
+        "id": 24,
+        "name": "Path of the Warrior"
+      },
+      {
+        "id": 25,
+        "name": "Mind Over Matter"
+      }
+    ],
+    "league": "vaal"
+  },
+  {
+    "name": "morlox_iv",
+    "account": "morloxIC-1573",
+    "level": 100,
+    "ascendancy": "Blood Mage",
+    "class_id": 8,
+    "main_skill": "Convalescence",
+    "life": 1478,
+    "energy_shield": 0,
+    "ehp": 15000.0,
+    "dps": 364000.0,
+    "dps_display": "364k",
+    "skills": [
+      {
+        "id": 275,
+        "name": "Convalescence"
+      },
+      {
+        "id": 301,
+        "name": "Zarokh's Revolt"
+      },
+      {
+        "id": 103,
+        "name": "Overextend"
+      },
+      {
+        "id": 302,
+        "name": "Chaos Bolt"
+      },
+      {
+        "id": 303,
+        "name": "Entangle"
+      },
+      {
+        "id": 304,
+        "name": "Essence Drain"
+      },
+      {
+        "id": 305,
+        "name": "Thrashing Vines"
+      },
+      {
+        "id": 306,
+        "name": "Bonestorm"
+      },
+      {
+        "id": 307,
+        "name": "Dark Effigy"
+      }
+    ],
+    "keystones": [
+      {
+        "id": 70,
+        "name": "Conduit"
+      },
+      {
+        "id": 24,
+        "name": "Path of the Warrior"
+      },
+      {
+        "id": 57,
+        "name": "Forced Outcome"
+      },
+      {
+        "id": 61,
+        "name": "Vaal Pact"
+      },
+      {
+        "id": 58,
+        "name": "Scarred Faith"
+      },
+      {
+        "id": 67,
+        "name": "Sacrifice of Flesh"
+      },
+      {
+        "id": 68,
+        "name": "Blackflame Covenant"
+      },
+      {
+        "id": 25,
+        "name": "Mind Over Matter"
+      },
+      {
+        "id": 69,
+        "name": "Ritual Cadence"
+      },
+      {
+        "id": 52,
+        "name": "Sanguine Tides"
+      }
+    ],
+    "league": "vaal"
+  },
+  {
+    "name": "Venomuuhs",
+    "account": "Lohock-1361",
+    "level": 100,
+    "ascendancy": "Smith of Kitava",
+    "class_id": 3,
+    "main_skill": "Tectonic Slams",
+    "life": 1524,
+    "energy_shield": 1325,
+    "ehp": 9300.0,
+    "dps": 2200000.0,
+    "dps_display": "2.2M",
+    "skills": [
+      {
+        "id": 38,
+        "name": "Tectonic Slams"
+      },
+      {
+        "id": 3,
+        "name": "Ferocious Roar"
+      },
+      {
+        "id": 41,
+        "name": "Poisonburst Arrow"
+      },
+      {
+        "id": 42,
+        "name": "Vine Arrow"
+      },
+      {
+        "id": 39,
+        "name": "Bow Shot"
+      },
+      {
+        "id": 100,
+        "name": "Mobility"
+      },
+      {
+        "id": 40,
+        "name": "Toxic Growth"
+      },
+      {
+        "id": 200,
+        "name": "Tornado Shot"
+      }
+    ],
+    "keystones": [],
+    "league": "vaal"
+  },
+  {
+    "name": "madaraloh",
+    "account": "ысвафыамфыав-5377",
+    "level": 100,
+    "ascendancy": "Shaman",
+    "class_id": 7,
+    "main_skill": "Mirror of Refraction",
+    "life": 2527,
+    "energy_shield": 3770,
+    "ehp": 8900.0,
+    "dps": 280000.0,
+    "dps_display": "280k",
+    "skills": [
+      {
+        "id": 588,
+        "name": "Mirror of Refraction"
+      },
+      {
+        "id": 141,
+        "name": "Firestorm"
+      },
+      {
+        "id": 114,
+        "name": "Frost Wall"
+      },
+      {
+        "id": 268,
+        "name": "Zerphi's Infamy"
+      },
+      {
+        "id": 116,
+        "name": "Arctic Armour"
+      }
+    ],
+    "keystones": [
+      {
+        "id": 4,
+        "name": "Colossal Capacity"
+      }
+    ],
+    "league": "vaal"
+  },
+  {
+    "name": "SkouanePWNZ",
+    "account": "VSL1337Warrior-5660",
+    "level": 100,
+    "ascendancy": "Titan",
+    "class_id": 1,
+    "main_skill": "Bhatair's Vengeance",
+    "life": 1,
+    "energy_shield": 7527,
+    "ehp": 18000.0,
+    "dps": 469000.0,
+    "dps_display": "469k",
+    "skills": [
+      {
+        "id": 26,
+        "name": "Bhatair's Vengeance"
+      },
+      {
+        "id": 319,
+        "name": "Blind I"
+      },
+      {
+        "id": 320,
+        "name": "Ice-Tipped Arrows"
+      },
+      {
+        "id": 321,
+        "name": "Ice Shot"
+      },
+      {
+        "id": 199,
+        "name": "Herald of Ash"
+      },
+      {
+        "id": 322,
+        "name": "Stormcaller Arrow"
+      },
+      {
+        "id": 1,
+        "name": "Walking Calamity"
+      }
+    ],
+    "keystones": [
+      {
+        "id": 62,
+        "name": "Elemental Equilibrium"
+      }
+    ],
+    "league": "vaal"
+  },
+  {
+    "name": "IronPathFinder",
+    "account": "huangwb-8517",
+    "level": 100,
+    "ascendancy": "Smith of Kitava",
+    "class_id": 3,
+    "main_skill": "Overcharge",
+    "life": 1688,
+    "energy_shield": 3267,
+    "ehp": 20000.0,
+    "dps": 150000.0,
+    "dps_display": "150k",
+    "skills": [
+      {
+        "id": 329,
+        "name": "Overcharge"
+      },
+      {
+        "id": 330,
+        "name": "Crossbow Shot"
+      },
+      {
+        "id": 1,
+        "name": "Walking Calamity"
+      },
+      {
+        "id": 331,
+        "name": "Explosive Shot"
+      },
+      {
+        "id": 44,
+        "name": "Herald of Blood"
+      },
+      {
+        "id": 200,
+        "name": "Tornado Shot"
+      },
+      {
+        "id": 332,
+        "name": "Galvanic Shards"
+      },
+      {
+        "id": 333,
+        "name": "Gas Grenade"
+      }
+    ],
+    "keystones": [],
+    "league": "vaal"
+  },
+  {
+    "name": "SoaStinkyTemple",
+    "account": "Soanoa-1177",
+    "level": 100,
+    "ascendancy": "Smith of Kitava",
+    "class_id": 3,
+    "main_skill": "Tectonic Slams",
+    "life": 1535,
+    "energy_shield": 2141,
+    "ehp": 19000.0,
+    "dps": 2500000.0,
+    "dps_display": "2.5M",
+    "skills": [
+      {
+        "id": 38,
+        "name": "Tectonic Slams"
+      },
+      {
+        "id": 3,
+        "name": "Ferocious Roar"
+      },
+      {
+        "id": 43,
+        "name": "Gas Arrow"
+      },
+      {
+        "id": 39,
+        "name": "Bow Shot"
+      },
+      {
+        "id": 100,
+        "name": "Mobility"
+      },
+      {
+        "id": 44,
+        "name": "Herald of Blood"
+      },
+      {
+        "id": 42,
+        "name": "Vine Arrow"
+      },
+      {
+        "id": 40,
+        "name": "Toxic Growth"
+      },
+      {
+        "id": 45,
+        "name": "Wind Dancer"
+      }
+    ],
+    "keystones": [],
+    "league": "vaal"
+  },
+  {
+    "name": "MatJoeDaiki",
+    "account": "JoeDaiki-2729",
+    "level": 100,
+    "ascendancy": "Smith of Kitava",
+    "class_id": 3,
+    "main_skill": "Bow Shot",
+    "life": 1790,
+    "energy_shield": 905,
+    "ehp": 7600.0,
+    "dps": 389000.0,
+    "dps_display": "389k",
+    "skills": [
+      {
+        "id": 39,
+        "name": "Bow Shot"
+      },
+      {
+        "id": 40,
+        "name": "Toxic Growth"
+      },
+      {
+        "id": 100,
+        "name": "Mobility"
+      },
+      {
+        "id": 42,
+        "name": "Vine Arrow"
+      },
+      {
+        "id": 345,
+        "name": "Minion Mastery"
+      },
+      {
+        "id": 43,
+        "name": "Gas Arrow"
+      }
+    ],
+    "keystones": [],
+    "league": "vaal"
+  },
+  {
+    "name": "WhereTempleBuffs",
+    "account": "DongQuong-5114",
+    "level": 100,
+    "ascendancy": "Smith of Kitava",
+    "class_id": 3,
+    "main_skill": "Maim",
+    "life": 1702,
+    "energy_shield": 1310,
+    "ehp": 22000.0,
+    "dps": 200.0,
+    "dps_display": "0.2k",
+    "skills": [
+      {
+        "id": 347,
+        "name": "Maim"
+      },
+      {
+        "id": 348,
+        "name": "Incinerate"
+      }
+    ],
+    "keystones": [],
+    "league": "vaal"
+  },
+  {
+    "name": "freavate_ices",
+    "account": "freavate-5770",
+    "level": 100,
+    "ascendancy": "Pathfinder",
+    "class_id": 4,
+    "main_skill": "Tornado Shot",
+    "life": 1,
+    "energy_shield": 4582,
+    "ehp": 10000.0,
+    "dps": 532000.0,
+    "dps_display": "532k",
+    "skills": [
+      {
+        "id": 200,
+        "name": "Tornado Shot"
+      },
+      {
+        "id": 322,
+        "name": "Stormcaller Arrow"
+      },
+      {
+        "id": 26,
+        "name": "Bhatair's Vengeance"
+      },
+      {
+        "id": 199,
+        "name": "Herald of Ash"
+      },
+      {
+        "id": 319,
+        "name": "Blind I"
+      },
+      {
+        "id": 320,
+        "name": "Ice-Tipped Arrows"
+      },
+      {
+        "id": 1,
+        "name": "Walking Calamity"
+      }
+    ],
+    "keystones": [
+      {
+        "id": 62,
+        "name": "Elemental Equilibrium"
+      }
+    ],
+    "league": "vaal"
+  },
+  {
+    "name": "Tvent",
+    "account": "FlxDda-9538",
+    "level": 100,
+    "ascendancy": "Pathfinder",
+    "class_id": 4,
+    "main_skill": "Blood Boil",
+    "life": 1594,
+    "energy_shield": 1766,
+    "ehp": 11000.0,
+    "dps": 2000000.0,
+    "dps_display": "2.0M",
+    "skills": [
+      {
+        "id": 197,
+        "name": "Blood Boil"
+      },
+      {
+        "id": 200,
+        "name": "Tornado Shot"
+      },
+      {
+        "id": 227,
+        "name": "Impurity"
+      },
+      {
+        "id": 202,
+        "name": "Electrocuting Arrow"
+      },
+      {
+        "id": 44,
+        "name": "Herald of Blood"
+      },
+      {
+        "id": 322,
+        "name": "Stormcaller Arrow"
+      }
+    ],
+    "keystones": [],
+    "league": "vaal"
+  },
+  {
+    "name": "pebzdruid",
+    "account": "peerbaza-5894",
+    "level": 100,
+    "ascendancy": "Blood Mage",
+    "class_id": 8,
+    "main_skill": "Escape Shot",
+    "life": 1635,
+    "energy_shield": 0,
+    "ehp": 12000.0,
+    "dps": 295000.0,
+    "dps_display": "295k",
+    "skills": [
+      {
+        "id": 111,
+        "name": "Escape Shot"
+      },
+      {
+        "id": 147,
+        "name": "Heightened Charges"
+      },
+      {
+        "id": 112,
+        "name": "Living Bomb"
+      },
+      {
+        "id": 141,
+        "name": "Firestorm"
+      },
+      {
+        "id": 178,
+        "name": "Soul Offering"
+      },
+      {
+        "id": 293,
+        "name": "Ball Lightning"
+      },
+      {
+        "id": 114,
+        "name": "Frost Wall"
+      },
+      {
+        "id": 262,
+        "name": "Explosive Spear"
+      }
+    ],
+    "keystones": [
+      {
+        "id": 24,
+        "name": "Path of the Warrior"
+      },
+      {
+        "id": 58,
+        "name": "Scarred Faith"
+      },
+      {
+        "id": 73,
+        "name": "Sustainable Practices"
+      },
+      {
+        "id": 25,
+        "name": "Mind Over Matter"
+      },
+      {
+        "id": 69,
+        "name": "Ritual Cadence"
+      },
+      {
+        "id": 52,
+        "name": "Sanguine Tides"
+      },
+      {
+        "id": 59,
+        "name": "Wildsurge Incantation"
+      }
+    ],
+    "league": "vaal"
+  },
+  {
+    "name": "WooPathfinder",
+    "account": "ItsBigWoo-4108",
+    "level": 100,
+    "ascendancy": "Smith of Kitava",
+    "class_id": 3,
+    "main_skill": "Cackling Companions",
+    "life": 1560,
+    "energy_shield": 3026,
+    "ehp": 19000.0,
+    "dps": 63000.0,
+    "dps_display": "63k",
+    "skills": [
+      {
+        "id": 356,
+        "name": "Cackling Companions"
+      },
+      {
+        "id": 348,
+        "name": "Incinerate"
+      },
+      {
+        "id": 333,
+        "name": "Gas Grenade"
+      },
+      {
+        "id": 357,
+        "name": "Cluster Grenade"
+      },
+      {
+        "id": 358,
+        "name": "Mirage Archer"
+      },
+      {
+        "id": 330,
+        "name": "Crossbow Shot"
+      },
+      {
+        "id": 332,
+        "name": "Galvanic Shards"
+      },
+      {
+        "id": 234,
+        "name": "Electrocute"
+      }
+    ],
+    "keystones": [],
+    "league": "vaal"
+  },
+  {
+    "name": "Nippyflips",
+    "account": "Nippyflips-5045",
+    "level": 100,
+    "ascendancy": "Smith of Kitava",
+    "class_id": 3,
+    "main_skill": "Bow Shot",
+    "life": 1687,
+    "energy_shield": 2401,
+    "ehp": 24000.0,
+    "dps": 1000000.0,
+    "dps_display": "1.0M",
+    "skills": [
+      {
+        "id": 39,
+        "name": "Bow Shot"
+      },
+      {
+        "id": 43,
+        "name": "Gas Arrow"
+      },
+      {
+        "id": 41,
+        "name": "Poisonburst Arrow"
+      },
+      {
+        "id": 42,
+        "name": "Vine Arrow"
+      },
+      {
+        "id": 66,
+        "name": "Encroaching Ground"
+      },
+      {
+        "id": 45,
+        "name": "Wind Dancer"
+      },
+      {
+        "id": 40,
+        "name": "Toxic Growth"
+      }
+    ],
+    "keystones": [],
+    "league": "vaal"
+  },
+  {
+    "name": "TheMissingTit",
+    "account": "SirfreeforallPoE-5480",
+    "level": 100,
+    "ascendancy": "Pathfinder",
+    "class_id": 4,
+    "main_skill": "Heightened Charges",
+    "life": 1,
+    "energy_shield": 6956,
+    "ehp": 10000.0,
+    "dps": 0.0,
+    "dps_display": "0.0k",
+    "skills": [
+      {
+        "id": 147,
+        "name": "Heightened Charges"
+      },
+      {
+        "id": 133,
+        "name": "Cold Mastery"
+      },
+      {
+        "id": 274,
+        "name": "Remnant Potency III"
+      },
+      {
+        "id": 111,
+        "name": "Escape Shot"
+      },
+      {
+        "id": 262,
+        "name": "Explosive Spear"
+      },
+      {
+        "id": 362,
+        "name": "Deadly Poison I"
+      }
+    ],
+    "keystones": [
+      {
+        "id": 24,
+        "name": "Path of the Warrior"
+      },
+      {
+        "id": 62,
+        "name": "Elemental Equilibrium"
+      }
+    ],
+    "league": "vaal"
+  },
+  {
+    "name": "Ash_ABOBATUHBASEG",
+    "account": "demeter94-5208",
+    "level": 100,
+    "ascendancy": "Ritualist",
+    "class_id": 5,
+    "main_skill": "Cast on Elemental Ailment",
+    "life": 1,
+    "energy_shield": 10215,
+    "ehp": 25000.0,
+    "dps": 98000.0,
+    "dps_display": "98k",
+    "skills": [
+      {
+        "id": 138,
+        "name": "Cast on Elemental Ailment"
+      },
+      {
+        "id": 226,
+        "name": "Spear Throw"
+      },
+      {
+        "id": 176,
+        "name": "Lightning Bolt"
+      },
+      {
+        "id": 181,
+        "name": "Temporal Chains"
+      },
+      {
+        "id": 366,
+        "name": "Selfless Remnants"
+      },
+      {
+        "id": 116,
+        "name": "Arctic Armour"
+      },
+      {
+        "id": 274,
+        "name": "Remnant Potency III"
+      },
+      {
+        "id": 111,
+        "name": "Escape Shot"
+      },
+      {
+        "id": 275,
+        "name": "Convalescence"
+      },
+      {
+        "id": 141,
+        "name": "Firestorm"
+      }
+    ],
+    "keystones": [
+      {
+        "id": 73,
+        "name": "Sustainable Practices"
+      },
+      {
+        "id": 62,
+        "name": "Elemental Equilibrium"
+      }
+    ],
+    "league": "vaal"
+  },
+  {
+    "name": "Tika_GuguGaga",
+    "account": "Leelanarong-0302",
+    "level": 100,
+    "ascendancy": "Shaman",
+    "class_id": 7,
+    "main_skill": "Living Bomb",
+    "life": 1939,
+    "energy_shield": 814,
+    "ehp": 7400.0,
+    "dps": 451000.0,
+    "dps_display": "451k",
+    "skills": [
+      {
+        "id": 112,
+        "name": "Living Bomb"
+      },
+      {
+        "id": 175,
+        "name": "Deep Freeze"
+      },
+      {
+        "id": 176,
+        "name": "Lightning Bolt"
+      },
+      {
+        "id": 62,
+        "name": "Chaos Attunement"
+      },
+      {
+        "id": 113,
+        "name": "Life Remnants"
+      },
+      {
+        "id": 178,
+        "name": "Soul Offering"
+      },
+      {
+        "id": 116,
+        "name": "Arctic Armour"
+      },
+      {
+        "id": 181,
+        "name": "Temporal Chains"
+      }
+    ],
+    "keystones": [
+      {
+        "id": 4,
+        "name": "Colossal Capacity"
+      }
+    ],
+    "league": "vaal"
+  },
+  {
+    "name": "BringAfflictionBack",
+    "account": "gustavotejo-0628",
+    "level": 100,
+    "ascendancy": "Smith of Kitava",
+    "class_id": 3,
+    "main_skill": "Ferocious Roar",
+    "life": 1555,
+    "energy_shield": 2778,
+    "ehp": 26000.0,
+    "dps": 803000.0,
+    "dps_display": "803k",
+    "skills": [
+      {
+        "id": 3,
+        "name": "Ferocious Roar"
+      },
+      {
+        "id": 40,
+        "name": "Toxic Growth"
+      },
+      {
+        "id": 39,
+        "name": "Bow Shot"
+      },
+      {
+        "id": 44,
+        "name": "Herald of Blood"
+      },
+      {
+        "id": 41,
+        "name": "Poisonburst Arrow"
+      },
+      {
+        "id": 100,
+        "name": "Mobility"
+      },
+      {
+        "id": 43,
+        "name": "Gas Arrow"
+      },
+      {
+        "id": 42,
+        "name": "Vine Arrow"
+      }
+    ],
+    "keystones": [],
+    "league": "vaal"
+  },
+  {
+    "name": "GodFatherOZZY",
+    "account": "AC_AC-6244",
+    "level": 100,
+    "ascendancy": "Class_None",
+    "class_id": null,
+    "main_skill": "Rampage",
+    "life": 3767,
+    "energy_shield": 454,
+    "ehp": 26000.0,
+    "dps": 446000.0,
+    "dps_display": "446k",
+    "skills": [
+      {
+        "id": 6,
+        "name": "Rampage"
+      },
+      {
+        "id": 376,
+        "name": "Living Lightning II"
+      },
+      {
+        "id": 44,
+        "name": "Herald of Blood"
+      },
+      {
+        "id": 377,
+        "name": "Mace Strike"
+      },
+      {
+        "id": 4,
+        "name": "Pounce"
+      },
+      {
+        "id": 198,
+        "name": "Lightning Arrow"
+      },
+      {
+        "id": 16,
+        "name": "Precision I"
+      },
+      {
+        "id": 378,
+        "name": "Seismic Cry"
+      },
+      {
+        "id": 5,
+        "name": "Furious Slam"
+      },
+      {
+        "id": 2,
+        "name": "Herald of Ice"
+      }
+    ],
+    "keystones": [
+      {
+        "id": 78,
+        "name": "Crushing Impacts"
+      }
+    ],
+    "league": "vaal"
+  },
+  {
+    "name": "ChillaMaggiTTVfan",
+    "account": "olleyDE-4339",
+    "level": 100,
+    "ascendancy": "Disciple of Varashta",
+    "class_id": 10,
+    "main_skill": "Exploit Weakness",
+    "life": 1498,
+    "energy_shield": 3139,
+    "ehp": 17000.0,
+    "dps": 1100000.0,
+    "dps_display": "1.1M",
+    "skills": [
+      {
+        "id": 384,
+        "name": "Exploit Weakness"
+      },
+      {
+        "id": 202,
+        "name": "Electrocuting Arrow"
+      },
+      {
+        "id": 200,
+        "name": "Tornado Shot"
+      },
+      {
+        "id": 199,
+        "name": "Herald of Ash"
+      },
+      {
+        "id": 133,
+        "name": "Cold Mastery"
+      },
+      {
+        "id": 72,
+        "name": "Despair"
+      },
+      {
+        "id": 197,
+        "name": "Blood Boil"
+      }
+    ],
+    "keystones": [],
+    "league": "vaal"
+  },
+  {
+    "name": "KassaBezDeneg",
+    "account": "Adverlolka-8983",
+    "level": 100,
+    "ascendancy": "Deadeye",
+    "class_id": 11,
+    "main_skill": "Remnant Potency I",
+    "life": 1,
+    "energy_shield": 6745,
+    "ehp": 22000.0,
+    "dps": 0,
+    "dps_display": "",
+    "skills": [
+      {
+        "id": 124,
+        "name": "Remnant Potency I"
+      },
+      {
+        "id": 115,
+        "name": "Elemental Weakness"
+      },
+      {
+        "id": 388,
+        "name": "Cooldown Recovery I"
+      },
+      {
+        "id": 389,
+        "name": "Defiance Banner"
+      },
+      {
+        "id": 390,
+        "name": "War Banner"
+      }
+    ],
+    "keystones": [
+      {
+        "id": 84,
+        "name": "Point Blank"
+      },
+      {
+        "id": 62,
+        "name": "Elemental Equilibrium"
+      }
+    ],
+    "league": "vaal"
+  },
+  {
+    "name": "LyAtziriAtziri",
+    "account": "LyraelEyrie-5765",
+    "level": 100,
+    "ascendancy": "Blood Mage",
+    "class_id": 8,
+    "main_skill": "Charge Regulation",
+    "life": 1,
+    "energy_shield": 10432,
+    "ehp": 25000.0,
+    "dps": 68000.0,
+    "dps_display": "68k",
+    "skills": [
+      {
+        "id": 395,
+        "name": "Charge Regulation"
+      },
+      {
+        "id": 111,
+        "name": "Escape Shot"
+      },
+      {
+        "id": 141,
+        "name": "Firestorm"
+      },
+      {
+        "id": 113,
+        "name": "Life Remnants"
+      },
+      {
+        "id": 62,
+        "name": "Chaos Attunement"
+      },
+      {
+        "id": 116,
+        "name": "Arctic Armour"
+      },
+      {
+        "id": 178,
+        "name": "Soul Offering"
+      }
+    ],
+    "keystones": [
+      {
+        "id": 58,
+        "name": "Scarred Faith"
+      },
+      {
+        "id": 62,
+        "name": "Elemental Equilibrium"
+      }
+    ],
+    "league": "vaal"
+  },
+  {
+    "name": "LargeBoobaEnjoyer",
+    "account": "adamantine-3598",
+    "level": 100,
+    "ascendancy": "Smith of Kitava",
+    "class_id": 3,
+    "main_skill": "Toxic Growth",
+    "life": 1656,
+    "energy_shield": 2920,
+    "ehp": 34000.0,
+    "dps": 954000.0,
+    "dps_display": "954k",
+    "skills": [
+      {
+        "id": 40,
+        "name": "Toxic Growth"
+      },
+      {
+        "id": 42,
+        "name": "Vine Arrow"
+      },
+      {
+        "id": 44,
+        "name": "Herald of Blood"
+      },
+      {
+        "id": 43,
+        "name": "Gas Arrow"
+      },
+      {
+        "id": 41,
+        "name": "Poisonburst Arrow"
+      },
+      {
+        "id": 45,
+        "name": "Wind Dancer"
+      },
+      {
+        "id": 66,
+        "name": "Encroaching Ground"
+      },
+      {
+        "id": 39,
+        "name": "Bow Shot"
+      }
+    ],
+    "keystones": [],
+    "league": "vaal"
+  },
+  {
+    "name": "Bhongskiiiiiiii",
+    "account": "Bhongskii-1846",
+    "level": 100,
+    "ascendancy": "Tactician",
+    "class_id": 12,
+    "main_skill": "Creeping Chill",
+    "life": 2088,
+    "energy_shield": 83,
+    "ehp": 9200.0,
+    "dps": 451000.0,
+    "dps_display": "451k",
+    "skills": [
+      {
+        "id": 397,
+        "name": "Creeping Chill"
+      },
+      {
+        "id": 38,
+        "name": "Tectonic Slams"
+      },
+      {
+        "id": 320,
+        "name": "Ice-Tipped Arrows"
+      },
+      {
+        "id": 322,
+        "name": "Stormcaller Arrow"
+      },
+      {
+        "id": 3,
+        "name": "Ferocious Roar"
+      },
+      {
+        "id": 39,
+        "name": "Bow Shot"
+      },
+      {
+        "id": 200,
+        "name": "Tornado Shot"
+      },
+      {
+        "id": 40,
+        "name": "Toxic Growth"
+      },
+      {
+        "id": 197,
+        "name": "Blood Boil"
+      },
+      {
+        "id": 5,
+        "name": "Furious Slam"
+      }
+    ],
+    "keystones": [],
+    "league": "vaal"
+  },
+  {
+    "name": "Wercfamaz",
+    "account": "Psih225-6389",
+    "level": 100,
+    "ascendancy": "Pathfinder",
+    "class_id": 4,
+    "main_skill": "Ice-Tipped Arrows",
+    "life": 1898,
+    "energy_shield": 672,
+    "ehp": 8400.0,
+    "dps": 488000.0,
+    "dps_display": "488k",
+    "skills": [
+      {
+        "id": 320,
+        "name": "Ice-Tipped Arrows"
+      },
+      {
+        "id": 199,
+        "name": "Herald of Ash"
+      },
+      {
+        "id": 1,
+        "name": "Walking Calamity"
+      },
+      {
+        "id": 322,
+        "name": "Stormcaller Arrow"
+      },
+      {
+        "id": 44,
+        "name": "Herald of Blood"
+      },
+      {
+        "id": 399,
+        "name": "Sorcery Ward"
+      },
+      {
+        "id": 26,
+        "name": "Bhatair's Vengeance"
+      },
+      {
+        "id": 200,
+        "name": "Tornado Shot"
+      }
+    ],
+    "keystones": [],
+    "league": "vaal"
+  }
+]

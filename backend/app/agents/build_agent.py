@@ -30,6 +30,7 @@ from app.agents.kg_tools import (
 )
 from app.agents.tools import (
     calculate_damage,
+    find_compatible_supports,
     get_passive_graph,
     get_skill_mechanics,
     poe2db_lookup,
@@ -56,7 +57,7 @@ class BuildAgent:
         self,
         db: AsyncSession,
         user_request: str,
-        game_version: str = "3.26",
+        game_version: str = "0.4",
     ) -> dict[str, Any]:
         """主入口：根据用户请求生成 BD。
 
@@ -141,10 +142,15 @@ class BuildAgent:
         current_state = await self._invoke_node("analyze_synergies", current_state)
         current_state = await self._execute_tools(db, current_state)
         tool_results = current_state.get("_tool_results", [])
-        # 分配 get_skill_mechanics, search_synergies 和 poe2db_lookup 结果
+        # 分配 get_skill_mechanics, search_synergies, poe2db_lookup, KG 工具结果
         mechanics_results = []
         synergy_results = []
         poe2db_results = []
+        kg_keystones = []
+        kg_ascendancies = []
+        kg_affixes = []
+        kg_conflicts = []
+        kg_conversions = []
         for r in tool_results:
             if isinstance(r, dict) and "damage_formula" in r:
                 mechanics_results.append(r)
@@ -155,6 +161,18 @@ class BuildAgent:
             elif isinstance(r, dict) and r.get("found") and "sections" in r:
                 # poe2db_lookup 结果
                 poe2db_results.append(r)
+            elif isinstance(r, dict) and "keystones" in r:
+                kg_keystones.extend(r.get("keystones", []))
+            elif isinstance(r, dict) and "ascendancies" in r:
+                kg_ascendancies.extend(r.get("ascendancies", []))
+            elif isinstance(r, dict) and "affixes" in r:
+                kg_affixes.extend(r.get("affixes", []))
+            elif isinstance(r, dict) and "conflicts" in r:
+                kg_conflicts.extend(r.get("conflicts", []))
+            elif isinstance(r, dict) and "conversion_chains" in r:
+                kg_conversions.extend(r.get("conversion_chains", []))
+            elif isinstance(r, dict) and "paired_skills" in r:
+                synergy_results.append(r)
             elif isinstance(r, dict):
                 mechanics_results.append(r)
 
@@ -164,6 +182,21 @@ class BuildAgent:
             current_state["synergies"] = synergy_results
         if poe2db_results:
             current_state["poe2db_lookup_results"] = poe2db_results
+        # 聚合 find_compatible_supports 结果
+        compat_results: dict[str, Any] = {}
+        for r in tool_results:
+            if isinstance(r, dict) and "compatible_supports" in r:
+                compat_results[r.get("skill_name", "unknown")] = r
+        if compat_results:
+            current_state["compatible_supports"] = compat_results
+        # 聚合 KG 结果
+        current_state["kg_results"] = {
+            "keystones": kg_keystones,
+            "ascendancies": kg_ascendancies,
+            "affixes": kg_affixes,
+            "conflicts": kg_conflicts,
+            "conversion_chains": kg_conversions,
+        }
 
         # ── Step 4: Draft Build ──
         current_state = await self._invoke_node("draft_build", current_state)
@@ -264,14 +297,21 @@ class BuildAgent:
                 return await get_passive_graph(db, character_id=args["character_id"])
             case "calculate_damage":
                 return await calculate_damage(
-                    base_damage=args.get("base_damage", 100.0),
+                    base_damage_min=args.get("base_damage_min", 100.0),
+                    base_damage_max=args.get("base_damage_max", 150.0),
+                    added_damage=args.get("added_damage", 0.0),
                     increased_damage=args.get("increased_damage", 0.0),
                     more_multipliers=args.get("more_multipliers"),
-                    crit_chance=args.get("crit_chance", 0.05),
-                    crit_multiplier=args.get("crit_multiplier", 1.5),
+                    base_crit_chance=args.get("base_crit_chance", 0.05),
+                    increased_crit_chance=args.get("increased_crit_chance", 0.0),
+                    more_crit_chance=args.get("more_crit_chance"),
+                    base_crit_multiplier=args.get("base_crit_multiplier", 1.5),
+                    increased_crit_multiplier=args.get("increased_crit_multiplier", 0.0),
                     cast_rate=args.get("cast_rate", 2.0),
                     resistance_penetration=args.get("resistance_penetration", 0.0),
                     enemy_resistance=args.get("enemy_resistance", 0.0),
+                    impale_stacks=args.get("impale_stacks", 0),
+                    impale_chance=args.get("impale_chance", 0.0),
                 )
             case "validate_build":
                 return await validate_build(args["build"])
@@ -303,6 +343,10 @@ class BuildAgent:
                     term=args["term"],
                     lang=args.get("lang", "cn"),
                     format=args.get("format", "json"),
+                )
+            case "find_compatible_supports":
+                return await find_compatible_supports(
+                    db, skill_name=args["skill_name"], limit=args.get("limit", 30)
                 )
             case _:
                 raise ValueError(f"Unknown tool: {tool_name}")

@@ -164,7 +164,7 @@ POE2_ASCENDANCIES: list[dict[str, Any]] = [
 
 async def import_ascendancy_classes(
     db: AsyncSession,
-    game_version: str = "3.26",
+    game_version: str = "0.4",
     dry_run: bool = False,
 ) -> ImportStats:
     """导入升华职业数据。
@@ -276,7 +276,7 @@ async def _scrape_item_class_page(item_class: str, lang: str = "cn") -> list[dic
 
 async def import_item_bases(
     db: AsyncSession,
-    game_version: str = "3.26",
+    game_version: str = "0.4",
     item_classes: list[str] | None = None,
     concurrency: int = 3,
     dry_run: bool = False,
@@ -484,7 +484,7 @@ async def _scrape_unique_detail(slug: str, name_cn: str = "") -> dict[str, Any] 
 
 async def import_unique_items(
     db: AsyncSession,
-    game_version: str = "3.26",
+    game_version: str = "0.4",
     limit: int = 0,
     concurrency: int = 3,
     dry_run: bool = False,
@@ -647,7 +647,7 @@ def _update_existing(
 
 async def import_all_game_data(
     db: AsyncSession,
-    game_version: str = "3.26",
+    game_version: str = "0.4",
     include_items: bool = True,
     include_uniques: bool = False,
     unique_limit: int = 0,

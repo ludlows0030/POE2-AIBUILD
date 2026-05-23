@@ -58,7 +58,7 @@ class Neo4jManager:
             result = await session.execute_write(
                 self._run_query, cypher, params
             )
-            return await result.data() if result else []
+            return result if result else []
 
     async def execute_read(self, cypher: str, **params) -> list:
         """执行读事务。"""
@@ -66,7 +66,7 @@ class Neo4jManager:
             result = await session.execute_read(
                 self._run_query, cypher, params
             )
-            return await result.data() if result else []
+            return result if result else []
 
     @staticmethod
     async def _run_query(tx: AsyncManagedTransaction, cypher: str, params: dict) -> list:
